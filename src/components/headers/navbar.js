@@ -16,20 +16,18 @@ import { useMenuQuery } from "./menuQuery"
 const MainNav = ()=>{
 
     const menuItem = useMenuQuery();
-    console.log(menuItem, 'nav Menu Item')
     
-    // const [scroll, setScroll] = useState(false);
+    const [scroll, setScroll] = useState(false);
 
-    // useEffect(() => {
-    //     window.addEventListener("scroll", () => {
-    //       setScroll(window.scrollY > 50);
-    //     });
-    //   }, []);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+          setScroll(window.scrollY > 50);
+        });
+      }, []);
       
     return(
         <Fragment>
-            {/* <Navbar expand="lg" className={'d-none d-lg-block ' + (scroll ? "nav_sticky" : "")} id="navbar"> */}
-            <Navbar expand="lg" className="d-none d-lg-block" id="navbar">
+            <Navbar expand="lg" className={'d-none d-lg-block ' + (scroll ? "nav_sticky" : "")} id="navbar">
                 <Container>
                     <Navbar.Brand href="/">
                         <img src={Logo} alt="Logo" />
@@ -87,7 +85,7 @@ const MainNav = ()=>{
 
                 </Container>
             </Navbar>
-            {/* <ScrollTop data={scroll} /> */}
+            <ScrollTop data={scroll} />
             <ScrollTop />
         </Fragment>
     )

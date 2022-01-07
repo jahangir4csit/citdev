@@ -18,8 +18,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import VirtualTour from "../components/virtualTour"
 
-const isBrowser = typeof window !== "undefined"
-
 export default function HomePage({data}){
 
   const courseData = data.allWpCourseCategory.nodes;
@@ -28,14 +26,14 @@ export default function HomePage({data}){
     <Layout>
       <Seo title="Home" />
       <HomeBanner />
-      {/* <DepartmentSlider courseCatInfo={courseData} />
-      <CourseSlide coursSlide={courseData} /> */}
+      <DepartmentSlider courseCatInfo={courseData} />
+      <CourseSlide coursSlide={courseData} />
       <CitInfoSlider />
       <StudentSuccess />
       <Facilities />
       <StudentFeedback />
       <VirtualTour />
-      {/* <AdmissionCourses coursSlide={courseData} button /> */}
+      <AdmissionCourses coursSlide={courseData} button />
       <Seminar />
       <FeaturedTextOne />
       <FeaturedTextTwo aboutBtn />

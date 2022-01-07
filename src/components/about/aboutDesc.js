@@ -10,7 +10,7 @@ const AboutDesc = (data) =>{
         <section id="about_top">
         <div class="container">
             <div class="navbar_btn text-center d-md-none">
-                <a href="our-courses.html"><StaticImage src="../images/home/Button-book.png" alt="icon" />ব্রাউজ কোর্স <FontAwesomeIcon icon={faAngleDown} className="ps-2" /></a>
+                <a href="our-courses.html"><StaticImage src="../images/Button-book.png" alt="icon" />ব্রাউজ কোর্স <FontAwesomeIcon icon={faAngleDown} className="ps-2" /></a>
             </div>
 
             <div class="row">

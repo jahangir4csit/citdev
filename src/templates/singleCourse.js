@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import { graphql } from "gatsby"; 
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { StaticImage } from "gatsby-plugin-image"
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from "../components/layout"
 import StudentFeedback from "../components/homepage/studentFeedback"

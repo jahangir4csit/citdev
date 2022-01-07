@@ -22,7 +22,8 @@ const isBrowser = typeof window !== "undefined"
 
 export default function HomePage({data}){
 
-  const courseData = data.allWpCourseCategory.nodes;
+  //const courseData = data.allWpCourseCategory.nodes;
+  const courseData = '';
 
   return(
     <Layout>
@@ -46,45 +47,45 @@ export default function HomePage({data}){
   )
 }
 
-export const query = graphql`
-query CourseData
-{
-  allWpCourseCategory {
-    nodes {
-      name
-      slug
-      link
-      termTaxonomyId
-      categoryThumb {
-        categoryThumbnail {
-          sourceUrl
-        }
-      }
-      courses {
-        nodes {
-          id
-          title
-          excerpt
-          slug
-          courseCategories {
-            nodes {
-              name
-            }
-          }
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          course_options {
-            courseFee
-            discountFee
-            studentsIn
-          }
+// export const query = graphql`
+// query CourseData
+// {
+//   allWpCourseCategory {
+//     nodes {
+//       name
+//       slug
+//       link
+//       termTaxonomyId
+//       categoryThumb {
+//         categoryThumbnail {
+//           sourceUrl
+//         }
+//       }
+//       courses {
+//         nodes {
+//           id
+//           title
+//           excerpt
+//           slug
+//           courseCategories {
+//             nodes {
+//               name
+//             }
+//           }
+//           featuredImage {
+//             node {
+//               sourceUrl
+//             }
+//           }
+//           course_options {
+//             courseFee
+//             discountFee
+//             studentsIn
+//           }
 
-        }
-      }
-    }
-  }
+//         }
+//       }
+//     }
+//   }
   
-  }`
+//   }`

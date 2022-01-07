@@ -1,5 +1,4 @@
 import React from "react"
-
 import redShadow from '../../assets/images/home/red_shadow.png'
 import rightGreenShadow from '../../assets/images/home/right_green_shadow.png'
 import check from '../../assets/images/home/Check.png'

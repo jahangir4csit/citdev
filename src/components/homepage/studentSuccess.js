@@ -1,8 +1,6 @@
-import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React,{useState} from 'react'
-import ReactDOM from 'react-dom'
-import ModalVideo from 'react-modal-video'
+//import ModalVideo from 'react-modal-video'
 
 
 
@@ -20,13 +18,13 @@ const StudentSuccess = ()=>{
                     </div>
                     <div class="col-lg-6">
                         <div class="student_story_item">
-                            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="4XiveV2kHzk" onClose={() => setOpen(false)} />
+                            <a channel='youtube' autoplay isOpen={isOpen} videoId="4XiveV2kHzk" onClose={() => setOpen(false)} />
                             <button className="videobtn" onClick={()=> setOpen(true)} ><StaticImage class="img-fluid w-100" src="../../images/story-1.png" alt="image" /></button>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="student_story_item">
-                            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="4XiveV2kHzk" onClose={() => setOpen(false)} />
+                            <a channel='youtube' autoplay isOpen={isOpen} videoId="4XiveV2kHzk" onClose={() => setOpen(false)} />
                             <button className="videobtn" onClick={()=> setOpen(true)}><StaticImage class="img-fluid w-100" src="../../images/story-2.png" alt="image" /></button>
                         </div>
                     </div>

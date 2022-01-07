@@ -18,6 +18,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import VirtualTour from "../components/virtualTour"
 
+const isBrowser = typeof window !== "undefined"
 
 export default function HomePage({data}){
 

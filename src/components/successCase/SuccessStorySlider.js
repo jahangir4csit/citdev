@@ -25,27 +25,27 @@ export default function SuccessStorySlider(data){
             <Slider {...settingsSuccessSlider}>
                 <div>
                 <div class="pg_slide_item">
-                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../images/course-landing/pg-success-img.png" alt="image" /></a>
+                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../../images/course-landing/pg-success-img.png" alt="image" /></a>
                 </div>
                 </div>
                 <div>
                 <div class="pg_slide_item">
-                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../images/course-landing/pg-success-img.png" alt="image" /></a>
+                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../../images/course-landing/pg-success-img.png" alt="image" /></a>
                 </div>
                 </div>
                 <div>
                 <div class="pg_slide_item">
-                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../images/course-landing/pg-success-img.png" alt="image" /></a>
+                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../../images/course-landing/pg-success-img.png" alt="image" /></a>
                 </div>
                 </div>
                 <div>
                 <div class="pg_slide_item">
-                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../images/course-landing/pg-success-img.png" alt="image" /></a>
+                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../../images/course-landing/pg-success-img.png" alt="image" /></a>
                 </div>
                 </div>
                 <div>
                 <div class="pg_slide_item">
-                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../images/course-landing/pg-success-img.png" alt="image" /></a>
+                    <a  class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><StaticImage class="img-fluid w-100" src="../../images/course-landing/pg-success-img.png" alt="image" /></a>
                 </div>
                 </div>
             </Slider>

@@ -9,8 +9,7 @@ import SuccessStoryDesc from "../components/successCase/successStoryDesc"
 export default function SuccessStory({data}) {
 
     const courseData = data.allWpCourseCategory.nodes;
-    const page = data.allWpPage.nodes[0]
-    console.log(page, 'success s');
+    const page = data.allWpPage.nodes[0];
 
     return(
         <Layout>

@@ -2,7 +2,13 @@ import React,{useState} from 'react'
 import ReactDOM from 'react-dom'
 import ModalVideo from 'react-modal-video'
 
+const isBrowser = typeof window !== "undefined"
+
 export const ModalVid = (data) => {
+
+    if (!isBrowser) {
+        return;
+      }
 
     const caseSingle = data.videoData
     console.log(caseSingle, 'case single');

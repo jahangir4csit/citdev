@@ -4,9 +4,12 @@ import ModalVideo from 'react-modal-video'
 
 
 export const ModalVid = (data) => {
-    let window = window || global.window
+    if (typeof window === 'undefined') {
+        global.window = {}
+    }
     const caseSingle = data.videoData
     console.log(caseSingle, 'case single');
+
     const [isOpen, setOpen] = useState(false)
 
   return (

@@ -5,14 +5,13 @@ import {faPlay, faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-ico
 
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import CaseItems from "./caseItems";
+import CaseItem from "./caseItem";
 import { useSuccessCases } from "../hooks/useSuccessCases";
 
 
 const SuccessStoryGrid = ()=>{
 
     const cases = useSuccessCases();
-    console.log(cases, 'case Data');
 
     return(
         <section id="success_story">
@@ -20,16 +19,22 @@ const SuccessStoryGrid = ()=>{
             <div class="row">
                 <div class="col-12">
                     <div class="success_tabs">
-                        <Tabs defaultActiveKey="graphics" id="uncontrolled-tab-example" className="success_menu">
-                            <Tab eventKey="graphics" title="গ্রাফিক্স ডিজাইন">
-                                <CaseItems />
-                            </Tab>
-                            <Tab eventKey="uiux" title="ইউএক্স এইউ আই ডিজাইন">
-                                0 Items
-                            </Tab>
-                            <Tab eventKey="videoediting" title="ভিডিও এডিটিং">
-                                0 Items
-                            </Tab>
+                        <Tabs defaultActiveKey={cases.allWpSuccessCaseCategory.nodes[0].slug} id="uncontrolled-tab-example" className="success_menu">
+                            {cases.allWpSuccessCaseCategory.nodes.map(
+                                catItem=>(
+                                <Tab eventKey={catItem.slug} title={catItem.name}>
+                                    <div class="col-12" id="graphics">
+                                        <div class="row success_body g-4">
+                                            {catItem.successStory.nodes.map(
+                                                storyItem=>(
+                                                    <CaseItem data={storyItem} />
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+                                </Tab>
+                                )
+                            )}
                         </Tabs>
                     </div>
                 </div>

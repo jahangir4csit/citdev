@@ -1,11 +1,17 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React,{useState} from 'react'
 //import ModalVideo from 'react-modal-video'
-
+import { useFeaturedCases } from "../hooks/useSuccessCaseFeatured";
+import CaseItem from "../successCase/caseItem";
 
 
 const StudentSuccess = ()=>{
+
+    const successStoryHome = useFeaturedCases();
+    const ftStoryItem = successStoryHome.allWpSuccessStories.nodes;
+
     const [isOpen, setOpen] = useState(false)
+
      return(
         <section id="student_success">
             <div class="container">
@@ -16,21 +22,15 @@ const StudentSuccess = ()=>{
                             <p>কঠোর পরিশ্রম এবং বুদ্ধিমত্তা তো ছিলোই সাথে ছিলো ক্রিয়েটিভ আইটির সর্বাত্মক সহযোগিতা</p>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="student_story_item">
-                            <a channel='youtube' autoplay isOpen={isOpen} videoId="4XiveV2kHzk" onClose={() => setOpen(false)} />
-                            <button className="videobtn" onClick={()=> setOpen(true)} ><StaticImage class="img-fluid w-100" src="../../images/story-1.png" alt="image" /></button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="student_story_item">
-                            <a channel='youtube' autoplay isOpen={isOpen} videoId="4XiveV2kHzk" onClose={() => setOpen(false)} />
-                            <button className="videobtn" onClick={()=> setOpen(true)}><StaticImage class="img-fluid w-100" src="../../images/story-2.png" alt="image" /></button>
-                        </div>
-                    </div>
+                    {ftStoryItem.map(
+                        storyItem=>(
+                            <CaseItem data={storyItem} />
+                        )
+                    )}
                 </div>
             </div>
         </section> 
      )
  }
+
 export default StudentSuccess

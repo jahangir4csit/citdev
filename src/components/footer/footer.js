@@ -66,12 +66,12 @@ const Footer = ()=>{
                             <div class="footer_item footer_item_2">
                                 <h5>কুইক লিংক</h5>
                                 <ul>
-                                    <li><a href="#">এবাউট আস</a></li>
+                                    <li><a href="/about-us">আমাদের সম্পর্কে</a></li>
                                     <li><a href="#">গ্যালারি</a></li>
                                     <li><a href="#">জব প্লেসমেন্ট</a></li>
                                     <li><a href="#">ফিডবেক</a></li>
                                     <li><a href="/success-story">ফ্রিল্যান্সিং সাকসেক</a></li>
-                                    <li><a href="#">যোগাযোগ</a></li>
+                                    <li><a href="/contact-us">যোগাযোগ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -95,12 +95,12 @@ const Footer = ()=>{
                             <div class="footer_item footer_item_2">
                                 <h5>কুইক লিংক</h5>
                                 <ul>
-                                    <li><a href="#">এবাউট আস</a></li>
+                                    <li><a href="/about-us">আমাদের সম্পর্কে</a></li>
                                     <li><a href="#">গ্যালারি</a></li>
                                     <li><a href="#">জব প্লেসমেন্ট</a></li>
                                     <li><a href="#">ফিডবেক</a></li>
-                                    <li><a href="#">ফ্রিল্যান্সিং সাকসেক</a></li>
-                                    <li><a href="#">যোগাযোগ</a></li>
+                                    <li><a href="/success-story">ফ্রিল্যান্সিং সাকসেক</a></li>
+                                    <li><a href="/contact-us">যোগাযোগ</a></li>
                                 </ul>
                             </div>
                         </div>

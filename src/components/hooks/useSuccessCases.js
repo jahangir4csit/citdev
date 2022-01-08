@@ -7,10 +7,13 @@ export const useSuccessCases = () => {
         allWpSuccessCaseCategory {
             nodes {
               name
+              uri
               successStory {
                 nodes {
                   title
-                  content
+                  successStoryLink {
+                    successStoryLink
+                  }
                 }
               }
             }

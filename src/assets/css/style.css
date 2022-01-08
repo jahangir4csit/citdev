@@ -4539,8 +4539,12 @@ Our facilities_item Area End
   overflow: hidden;
 }
 
-.success_item a {
+.success_item button {
   display: block;
+  border: none;
+}
+.success_item .modalvidwrap{
+  width: 100%;
 }
 
 .ss_pagination {

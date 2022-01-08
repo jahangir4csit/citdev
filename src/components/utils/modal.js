@@ -19,8 +19,3 @@ export const ModalVid = (data) => {
   )
 
 }
-
-ReactDOM.render(
-    <ModalVid />,
-      document.getElementById('root')
-  )

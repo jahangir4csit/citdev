@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import ReactDOM from 'react-dom'
 import ModalVideo from 'react-modal-video'
 
-const isBrowser = typeof window !== "undefined"
+import { isBrowser } from '../utils/browser';
 
 export const ModalVid = (data) => {
 
@@ -22,4 +22,5 @@ export const ModalVid = (data) => {
       </button>
     </React.Fragment>
   )
+
 }

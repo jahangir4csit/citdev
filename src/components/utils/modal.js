@@ -1,26 +1,32 @@
-import React,{useState} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import ModalVideo from 'react-modal-video'
 
-import { isBrowser } from '../utils/browser';
+class App extends React.Component {
 
-export const ModalVid = (data) => {
+  constructor () {
+    super()
+    this.state = {
+      isOpen: false
+    }
+    this.openModal = this.openModal.bind(this)
+  }
 
-    if (!isBrowser) {
-        return;
-      }
+  openModal () {
+    this.setState({isOpen: true})
+  }
 
-    const caseSingle = data.videoData
-    console.log(caseSingle, 'case single');
-    const [isOpen, setOpen] = useState(false)
-
-  return (
-    <React.Fragment>
-      <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={caseSingle.successStoryLink.successStoryLink} onClose={() => setOpen(false)} />
-      <button className="modalvidwrap" onClick={()=> setOpen(true)}>
-        <img class="img-fluid w-100" src={caseSingle.featuredImage.node.sourceUrl} alt={caseSingle.title} />
-      </button>
-    </React.Fragment>
-  )
-
+  render () {
+    return (
+      <React.Fragment>
+        <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId='L61p2uyiMSo' onClose={() => this.setState({isOpen: false})} />
+        <button onClick={this.openModal}>Open</button>
+      </React.Fragment>
+    )
+  }
 }
+
+ReactDOM.render(
+  <App />,
+    document.getElementById('root')
+)

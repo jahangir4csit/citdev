@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react'
 import Slider from "react-slick";
 import { graphql } from "gatsby"; 
 import { StaticImage } from "gatsby-plugin-image"
@@ -8,12 +8,18 @@ import Layout from "../components/layout"
 import StudentFeedback from "../components/homepage/studentFeedback"
 import SuccessStorySlider from '../components/successCase/SuccessStorySlider'
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
+import ModalVideo from 'react-modal-video'
 
 export default function SingleCourse({data}){
 
-    const post = data.allWpCourse.nodes[0]
+    if (typeof window === 'undefined') {
+        global.window = {}
+    }
 
+    const post = data.allWpCourse.nodes[0]
     console.log(post, 'Single Course')
+
+    const [isOpen, setOpen] = useState(false);
 
     const settingsProjectsSlider = {
       className: "pgp_slider",
@@ -77,7 +83,10 @@ export default function SingleCourse({data}){
                             <img class="img-fluid w-100" src={post.featuredImage.node.sourceUrl} alt="image" />
                             : '' }
                             <div class="overly_icon">
-                                <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><FontAwesomeIcon icon={faPlay} /></a>
+                                <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={post.course_options.courseVideoUrl ? post.course_options.courseVideoUrl : '1PDg90odyVY'} onClose={() => setOpen(false)} />
+                                <button className="modalvidwrap" onClick={()=> setOpen(true)}>
+                                    <FontAwesomeIcon icon={faPlay} />
+                                </button>
                             </div>
                         </div>
                         <div class="yellow_dots_right"><StaticImage src="../images/course-landing/Pg_banner_shape3.png" alt="Yellow color dots" /></div>

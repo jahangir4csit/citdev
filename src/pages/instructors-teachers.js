@@ -15,7 +15,7 @@ export default function Instructors({data}) {
   return(
     <Layout>
       <Seo title={pageData.title} />
-      <InstructorDesc />
+      <InstructorDesc data={pageData} />
       <InstructorsList />
       <CourseSlide coursSlide={courseData} />
     </Layout>

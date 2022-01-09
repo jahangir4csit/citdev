@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from 'react'
 import redShadow from '../../assets/images/home/red_shadow.png'
 import rightGreenShadow from '../../assets/images/home/right_green_shadow.png'
 import check from '../../assets/images/home/Check.png'
@@ -9,6 +9,7 @@ import Plus from '../../assets/images/home/Plus.png'
 import Banner1 from '../../assets/images/home/banner1.png'
 import buttonBook from '../../assets/images/home/Button-book.png'
 import isoLogo from '../../assets/images/home/iso.png'
+import ModalVideo from 'react-modal-video'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
@@ -19,9 +20,14 @@ import { useHomeBanner } from '../hooks/useHomeBanner';
 
 const HomeBanner = ()=>{
 
+    if (typeof window === 'undefined') {
+        global.window = {}
+    }
+
     const data = useHomeBanner();
     const banner = data.allWpSection.nodes[0];
 
+    const [isOpen, setOpen] = useState(false);
 
     return(
     <section id="banner">
@@ -74,7 +80,11 @@ const HomeBanner = ()=>{
                         <img class="img-fluid w-100" src={Banner1} alt="image" />
                         <div class="banner_img_overly">
                             <div class="overly_icon">
-                                <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><FontAwesomeIcon icon={faPlay} /></a>
+                                <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="1PDg90odyVY" onClose={() => setOpen(false)} />
+                                <button className="modalvidwrap" onClick={()=> setOpen(true)}>
+                                    <FontAwesomeIcon icon={faPlay} />
+                                </button>
+                                
                             </div>
                             <div class="overly_text">
                                 <h4>{banner.homeBannerData.homeBannerSubTitle2}</h4>

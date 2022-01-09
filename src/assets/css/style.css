@@ -371,7 +371,7 @@ div.success_menu ul.common_slider_class li {
   padding-top: 142px;
   padding-bottom: 203px;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 #banner .red_shadow {
@@ -605,11 +605,6 @@ div.success_menu ul.common_slider_class li {
   -o-border-radius: 50%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
 }
 
 .overly_icon svg {
@@ -660,7 +655,7 @@ div.success_menu ul.common_slider_class li {
   position: relative;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  z-index: 100;
+  z-index: 0;
 }
 
 .course_slider_top .course_slider_item {
@@ -2134,7 +2129,9 @@ del {
 .company_item {
   display: none;
 }
-
+.company_item_wrap{
+  padding-bottom: 50px;
+}
 .company_item ul li {
   display: -webkit-box;
   display: -ms-flexbox;

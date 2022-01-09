@@ -45,9 +45,9 @@ const Footer = ()=>{
                                             <FontAwesomeIcon icon={faPhoneAlt} />
                                         </div>
                                         <div class="footer_text">
-                                            <span><a href="tel:+৮৮০ ১৬২৪৬৬৬০০০">+৮৮০ ১৬২৪৬৬৬০০০</a></span>
-                                            <span><a href="tel:+৮৮০ ১৬২৪৮৮৮৪৪৪">+৮৮০ ১৬২৪৮৮৮৪৪৪</a></span>
-                                            <span><a href="tel:+৮৮০ ১৯৬৬১৭৭১৭৭">+৮৮০ ১৯৬৬১৭৭১৭৭</a></span>
+                                            <span><Link to="tel:+৮৮০ ১৬২৪৬৬৬০০০">+৮৮০ ১৬২৪৬৬৬০০০</Link></span>
+                                            <span><Link to="tel:+৮৮০ ১৬২৪৮৮৮৪৪৪">+৮৮০ ১৬২৪৮৮৮৪৪৪</Link></span>
+                                            <span><Link to="tel:+৮৮০ ১৯৬৬১৭৭১৭৭">+৮৮০ ১৯৬৬১৭৭১৭৭</Link></span>
                                         </div>
                                     </li>
                                     <li>
@@ -66,12 +66,12 @@ const Footer = ()=>{
                             <div class="footer_item footer_item_2">
                                 <h5>কুইক লিংক</h5>
                                 <ul>
-                                    <li><a href="/about-us">আমাদের সম্পর্কে</a></li>
-                                    <li><a href="#">গ্যালারি</a></li>
-                                    <li><a href="#">জব প্লেসমেন্ট</a></li>
-                                    <li><a href="#">ফিডবেক</a></li>
-                                    <li><a href="/success-story">ফ্রিল্যান্সিং সাকসেক</a></li>
-                                    <li><a href="/contact-us">যোগাযোগ</a></li>
+                                    <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>
+                                    <li><Link to="#">গ্যালারি</Link></li>
+                                    <li><Link to="/instructors-teachers">ইন্সট্রাক্টর ও শিক্ষকবৃন্দ</Link></li>
+                                    <li><Link to="#">ফিডবেক</Link></li>
+                                    <li><Link to="/success-story">ফ্রিল্যান্সিং সাকসেক</Link></li>
+                                    <li><Link to="/contact-us">যোগাযোগ</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -80,12 +80,12 @@ const Footer = ()=>{
                             <div class="footer_item footer_item_2">
                                 <h5>কোর্স</h5>
                                 <ul>
-                                    <li><a href="#">গ্রাফিক্স ডিজাইন</a></li>
-                                    <li><a href="#">মোশন গ্রাফিক্স</a></li>
-                                    <li><a href="#">ইন্টেরিয়র ডিজাইন</a></li>
-                                    <li><a href="#">অ্যাপ ডেভেলপমেন্ট</a></li>
-                                    <li><a href="#">থ্রিডি এ্যানিমেশন</a></li>
-                                    <li><a href="#">ডিজিটাল মার্কেটিং</a></li>
+                                    <li><Link to="#">গ্রাফিক্স ডিজাইন</Link></li>
+                                    <li><Link to="#">মোশন গ্রাফিক্স</Link></li>
+                                    <li><Link to="#">ইন্টেরিয়র ডিজাইন</Link></li>
+                                    <li><Link to="#">অ্যাপ ডেভেলপমেন্ট</Link></li>
+                                    <li><Link to="#">থ্রিডি এ্যানিমেশন</Link></li>
+                                    <li><Link to="#">ডিজিটাল মার্কেটিং</Link></li>
                                 </ul>
 
                             </div>
@@ -95,12 +95,12 @@ const Footer = ()=>{
                             <div class="footer_item footer_item_2">
                                 <h5>কুইক লিংক</h5>
                                 <ul>
-                                    <li><a href="/about-us">আমাদের সম্পর্কে</a></li>
-                                    <li><a href="#">গ্যালারি</a></li>
-                                    <li><a href="#">জব প্লেসমেন্ট</a></li>
-                                    <li><a href="#">ফিডবেক</a></li>
-                                    <li><a href="/success-story">ফ্রিল্যান্সিং সাকসেক</a></li>
-                                    <li><a href="/contact-us">যোগাযোগ</a></li>
+                                    <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>
+                                    <li><Link to="#">গ্যালারি</Link></li>
+                                    <li><Link to="#">জব প্লেসমেন্ট</Link></li>
+                                    <li><Link to="#">ফিডবেক</Link></li>
+                                    <li><Link to="/success-story">ফ্রিল্যান্সিং সাকসেক</Link></li>
+                                    <li><Link to="/contact-us">যোগাযোগ</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -118,9 +118,9 @@ const Footer = ()=>{
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <div class="copy_social_link">
-                                        <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
-                                        <a href="#"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                                        <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+                                        <Link to="#"><FontAwesomeIcon icon={faFacebookF} /></Link>
+                                        <Link to="#"><FontAwesomeIcon icon={faLinkedinIn} /></Link>
+                                        <Link to="#"><FontAwesomeIcon icon={faTwitter} /></Link>
                                     </div>
                                 </div>
                             </div>

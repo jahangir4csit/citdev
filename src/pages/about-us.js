@@ -18,8 +18,6 @@ export default function AboutUs({data}) {
 
   const pageData = data.allWpPage.nodes[0];
 
-  console.log(pageData, 'about page');
-
   return(
     <Layout>
       <Seo title={pageData.title} />

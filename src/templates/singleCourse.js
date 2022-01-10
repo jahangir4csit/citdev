@@ -349,49 +349,35 @@ export default function SingleCourse({data}){
                             </div>
                         </div>
                         
-
+                        {post.studentProjects ? 
                         <div class="pgs_project">
                             <div class="row">
                                 <h2>আমাদের স্টুডেন্টদের করা কিছু প্রজেক্ট</h2>
                                 
                                 <div class="col-12">
                                     <Slider {...settingsProjectsSlider}>
-                                      <div>
-                                        <div class="pgp_slide_item">
-                                            <StaticImage class="img-fluid w-100" src="../images/course-landing/student-project-1.png" alt="image" />
-                                        </div>
-                                      </div>
-                                      <div>
-                                        <div class="pgp_slide_item">
-                                              <StaticImage class="img-fluid w-100" src="../images/course-landing/student-project-1.png" alt="image" />
-                                          </div>
-                                      </div>
-                                      <div>
-                                        <div class="pgp_slide_item">
-                                            <StaticImage class="img-fluid w-100" src="../images/course-landing/student-project-1.png" alt="image" />
-                                        </div>
-                                      </div>
-                                      <div>
-                                          <div class="pgp_slide_item">
-                                              <StaticImage class="img-fluid w-100" src="../images/course-landing/student-project-1.png" alt="image" />
-                                          </div>
-                                      </div>
-                                      <div>
-                                          <div class="pgp_slide_item">
-                                              <StaticImage class="img-fluid w-100" src="../images/course-landing/student-project-1.png" alt="image" />
-                                          </div>
-                                      </div>
+                                    {post.studentProjects.map(
+                                        item=> (
+                                            <div>
+                                                <div class="pgp_slide_item">
+                                                    <img class="img-fluid w-100" src={item.url} alt="image" />
+                                                </div>
+                                            </div>
+                                        )
+                                    )}
+
                                     </Slider>
                                 </div>
                             </div>
                         </div>
+                        : ''}
 
                         <StudentFeedback />
 
                     </div>
 
                     <div class="col-lg-5 d-none d-sm-block">
-                        <SuccessStorySlider />
+                        <SuccessStorySlider sdata={post.courseSuccessCase.successCaseLink} />
 
                         <div class="pg_wait">
                             <h3>আর অপেক্ষা কেনো?</h3>
@@ -522,6 +508,23 @@ export const query = graphql`
               }
             }
           }
+        }
+        studentProjects {
+            url
+          }
+          courseSuccessCase {
+            successCaseLink {
+              ... on WpSuccessStories {
+                successStoryLink {
+                  successStoryLink
+                }
+                featuredImage {
+                    node {
+                      sourceUrl
+                    }
+                }
+              }
+            }
         }
       }
     }

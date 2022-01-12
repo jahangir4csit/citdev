@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{Fragment, useState} from 'react'
 import Slider from "react-slick";
 import { graphql } from "gatsby"; 
 import { StaticImage } from "gatsby-plugin-image"
@@ -50,14 +50,16 @@ export default function SingleCourse({data}){
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="pg_banner_text">
-                            <h4>{post.course_options.courseSubTitle}</h4>
-                            <h1>{post.title}<span class="d-block d-sm-none">স্কিল এর সাথে</span></h1>
+                            <h4>{post.course_options.courseSubTitle ? post.course_options.courseSubTitle : ''}</h4>
+                            <h1>{post.title ? post.title : ''}<span class="d-block d-sm-none">স্কিল এর সাথে</span></h1>
                             <ul>
-                                <li>কোর্সের মেয়াদ<span>{post.course_options.courseDuration}</span></li>
-                                <li>লেকচার<span>{post.course_options.totalLecture}টি</span></li>
-                                <li>প্রজেক্ট<span>{post.course_options.classPerWeek}টি</span></li>
+                                <li>কোর্সের মেয়াদ<span>{post.course_options.courseDuration ? post.course_options.courseDuration : ''}</span></li>
+                                <li>লেকচার<span>{post.course_options.totalLecture ? post.course_options.totalLecture : ''}টি</span></li>
+                                <li>প্রজেক্ট<span>{post.course_options.classPerWeek ? post.course_options.classPerWeek : ''}টি</span></li>
                             </ul>
+                            {post.content ?
                             <p dangerouslySetInnerHTML={{ __html: post.content }} />
+                            : ''}
                             <div class="pg_banner_btn">
                                 <a href="desktop-50.html">ভর্তি হবো</a>
                                 <a href="free-seminer-schedule.html">ফ্রি সেমিনারে জয়েন করবো</a>
@@ -102,12 +104,15 @@ export default function SingleCourse({data}){
                     <div class="col-lg-7">
                         <div class="course_overviwe_text">
                             <h2> কোর্স ওভারভিউ </h2>
+                            {post.course_overview.courseOverview ? 
                             <div className='course_overview_article' dangerouslySetInnerHTML={{ __html: post.course_overview.courseOverview }} />
+                            : ''}
                             <div class="row">
                                 {post.overviewList.map(
                                     overviewListItem =>
                                     <div class="col-md-6">
                                         <ul>
+                                            {overviewListItem.title ? 
                                             <li>
                                                 <span>
                                                 <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,6 +120,7 @@ export default function SingleCourse({data}){
                                                 </svg></span>
                                                 {overviewListItem.title}
                                             </li>
+                                            : '' }
                                         </ul>
                                     </div>
                                 )}
@@ -148,25 +154,30 @@ export default function SingleCourse({data}){
                             <h3>কোর্স কারিকুলাম</h3>
                             <ul>
                                 <li>
-                                    <h4>ডিজাইন বেসিক, <span>{post.basicDurations} মাস</span></h4>
+                                    <h4>ডিজাইন বেসিক, <span>{post.basicDurations ? post.basicDurations : ''} মাস</span></h4>
                                     <div class="row">
                                         {post.basic.map(
                                           basic=>(
+                                            <>
+                                            {basic.title ?
 
-                                        <div class="col-sm-6">
-                                            <div class="pgc_inner_text">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
-                                                                </svg>
-                                                        </span>
-                                                        {basic.title}
-                                                    </li>
-                                                </ul>
+                                            <div class="col-sm-6">
+                                                <div class="pgc_inner_text">
+                                                    <ul>
+                                                        <li>
+                                                            <span>
+                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
+                                                                    </svg>
+                                                            </span>
+                                                            {basic.title}
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
+
+                                            : ''}
+                                            </>
 
                                             )
                                         )}
@@ -175,26 +186,29 @@ export default function SingleCourse({data}){
                                 </li>
 
                                 <li>
-                                    <h4>টুলস, <span>{post.toolsDurations} মাস</span></h4>
+                                    <h4>টুলস, <span>{post.toolsDurations ? post.toolsDurations : ''} মাস</span></h4>
                                     <div class="row">
 
                                     {post.tools.map(
                                           tools=>(
-
-                                        <div class="col-sm-6">
-                                            <div class="pgc_inner_text">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
-                                                                </svg>
-                                                        </span>
-                                                        {tools.title}
-                                                    </li>
-                                                </ul>
+                                            <>
+                                            {tools.title ? 
+                                            <div class="col-sm-6">
+                                                <div class="pgc_inner_text">
+                                                    <ul>
+                                                        <li>
+                                                            <span>
+                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
+                                                                    </svg>
+                                                            </span>
+                                                            {tools.title}
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
+                                            : '' }
+                                            </>
                                             )
                                         )}
 
@@ -208,20 +222,24 @@ export default function SingleCourse({data}){
 
                                     {post.projects.map(
                                           projects=>(
-                                        <div class="col-sm-6">
-                                            <div class="pgc_inner_text">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
-                                                                </svg>
-                                                        </span>
-                                                        {projects.title}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                              <>
+                                              {projects.title ?
+                                              <div class="col-sm-6">
+                                                <div class="pgc_inner_text">
+                                                    <ul>
+                                                        <li>
+                                                            <span>
+                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
+                                                                    </svg>
+                                                            </span>
+                                                            {projects.title}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                                : '' }
+                                              </>
 
                                             )
                                         )}
@@ -245,9 +263,11 @@ export default function SingleCourse({data}){
                                           <img class="img-fluid w-100" src={softwareItem.featuredImage.node.sourceUrl} alt="image" />
                                         </div>
                                         : '' }
+                                        {softwareItem.title ?
                                         <div class="pgcs_text">
                                           <p>{softwareItem.title}</p>
                                         </div>
+                                        : '' }
                                     </div>
                                 </div>
 
@@ -271,9 +291,11 @@ export default function SingleCourse({data}){
                                             <img class="img-fluid" src={courseforWItem.featuredImage.node.sourceUrl} alt={courseforWItem.title} />
                                             : ''}
                                         </div>
+                                        {courseforWItem.title ?
                                         <div class="pgcf_whom_item_text">
                                             <p>{courseforWItem.title}</p>
                                         </div>
+                                        : '' }
                                     </div>
                                 </div>
                                 )
@@ -296,9 +318,11 @@ export default function SingleCourse({data}){
                                             <img src={jobMarket.featuredImage.node.sourceUrl} alt={jobMarket.title}/>
                                             : '' }
                                         </div>
+                                        {jobMarket.content ?
                                         <div class="text">
                                             <div dangerouslySetInnerHTML={{ __html: jobMarket.content }} />
                                         </div>
+                                        : '' }
                                     </div>
                                 </div>
                               )
@@ -314,14 +338,18 @@ export default function SingleCourse({data}){
 
                             {post.course_options.jobPosition.map(
                                           jobPosition=>(
-
-                                <div class="col-6">
-                                    <div class="job_item">
-                                        <ul>
-                                            <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8" stroke="#FF7E31" stroke-width="2"/></svg>{jobPosition.title}</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                              <>
+                                            {jobPosition.title ?
+                                            <div class="col-6">
+                                                <div class="job_item">
+                                                    <ul>
+                                                        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8" stroke="#FF7E31" stroke-width="2"/></svg>{jobPosition.title}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            : '' }
+                                              </>
+      
                                 )
                                 )}
 
@@ -339,8 +367,10 @@ export default function SingleCourse({data}){
                                         {courseFacility.featuredImage ? 
                                         <img src={courseFacility.featuredImage.node.sourceUrl} alt={courseFacility.title} />
                                         : '' }
-                                        <h3>{courseFacility.title}</h3>
+                                        {courseFacility.title ? <h3>{courseFacility.title}</h3> : '' }
+                                        {courseFacility.content ? 
                                         <div dangerouslySetInnerHTML={{ __html: courseFacility.content }} />
+                                        : '' }
                                     </div>
                                 </div>
                                 )
@@ -359,9 +389,11 @@ export default function SingleCourse({data}){
                                     {post.studentProjects.map(
                                         item=> (
                                             <div>
+                                                {item.url ?
                                                 <div class="pgp_slide_item">
                                                     <img class="img-fluid w-100" src={item.url} alt="image" />
                                                 </div>
+                                                : '' }
                                             </div>
                                         )
                                     )}

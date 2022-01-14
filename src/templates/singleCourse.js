@@ -16,6 +16,7 @@ export default function SingleCourse({data}){
         global.window = {}
     }
 
+
     const post = data.allWpCourse.nodes[0]
     console.log(post, 'Single Course')
 

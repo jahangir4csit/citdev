@@ -24,12 +24,12 @@ const AboutDesc = (data) =>{
                     <div class="about_top_img">
                         {aboutData.pageSection.aboutLogo ?
                         <div class="single_img">
-                            <img class="img-fluid" src={aboutData.pageSection.aboutLogo.sourceUrl} alt="about" />
+                            <img class="img-fluid" src={aboutData.pageSection.aboutLogo.aboutLogo.sourceUrl} alt="about" />
                         </div>
                         : ''}
                         {aboutData.pageSection.aboutLogo2 ?
                         <div class="single_img">
-                            <img class="img-fluid" src={aboutData.pageSection.aboutLogo2.sourceUrl} alt="about" />
+                            <img class="img-fluid" src={aboutData.pageSection.aboutLogo.aboutLogo2.sourceUrl} alt="about" />
                         </div>
                         : ''}
                     </div>

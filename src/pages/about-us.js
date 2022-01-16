@@ -17,6 +17,8 @@ import OfficeWall from "../components/about/officeWall"
 export default function AboutUs({data}) {
 
   const pageData = data.allWpPage.nodes[0];
+  const mgtData = pageData.pageSection.ceoBrief;
+  console.log(mgtData, 'mgt data');
 
   return(
     <Layout>
@@ -25,7 +27,7 @@ export default function AboutUs({data}) {
       <VirtualTour />
       <FeaturedTextTwo />
       <CounterUp />
-      <MgtBrief />
+      <MgtBrief data={mgtData} />
       <CITAchievements />
       <CITMisionVision />
       <CITStatFull />
@@ -46,10 +48,26 @@ export const query = graphql`
         content
         pageSection {
           aboutLogo {
-            sourceUrl
+            aboutLogo {
+              sourceUrl
+            }
+            aboutLogo2 {
+              sourceUrl
+            }
           }
-          aboutLogo2 {
-            sourceUrl
+          ceoBrief {
+            description
+            designation
+            name
+            photo {
+              sourceUrl
+            }
+            socialMedia {
+              facebook
+              instagram
+              linkedin
+              twitter
+            }
           }
         }
       }

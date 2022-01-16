@@ -18,6 +18,8 @@ export default function AboutUs({data}) {
 
   const pageData = data.allWpPage.nodes[0];
   const mgtData = pageData.pageSection.ceoBrief;
+  const certified = pageData.pageSection.citCertified;
+
   console.log(mgtData, 'mgt data');
 
   return(
@@ -28,7 +30,7 @@ export default function AboutUs({data}) {
       <FeaturedTextTwo />
       <CounterUp />
       <MgtBrief data={mgtData} />
-      <CITAchievements />
+      <CITAchievements data={certified} />
       <CITMisionVision />
       <CITStatFull />
       <OfficeWall />
@@ -67,6 +69,13 @@ export const query = graphql`
               instagram
               linkedin
               twitter
+            }
+          }
+          citCertified {
+            title
+            description
+            photo {
+              sourceUrl
             }
           }
         }

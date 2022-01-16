@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const MgtBrief = (data)=>{
 
     const mgtBrief = data.data;
-    console.log(mgtBrief);
 
     return(
         <section id="ceo">
@@ -14,8 +13,8 @@ const MgtBrief = (data)=>{
                 <div class="row align-items-center g-5">
                     <div class="col-md-6">
                         <div class="ceo_StaticImage">
-                            {MgtBrief.photo !==null ? 
-                            <img class="StaticImage-fluid w-100" src={mgtBrief.photo.sourceUrl} alt={mgtBrief.name} />
+                            {mgtBrief.photo !==null ? 
+                            <img class="img-fluid w-100" src={mgtBrief.photo.sourceUrl} alt={mgtBrief.name} />
                             : ''}
                         </div>
                     </div>

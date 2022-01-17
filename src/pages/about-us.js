@@ -19,6 +19,7 @@ export default function AboutUs({data}) {
   const pageData = data.allWpPage.nodes[0];
   const mgtData = pageData.pageSection.ceoBrief;
   const certified = pageData.pageSection.citCertified;
+  const branchInfo = pageData.branchInfo;
 
   console.log(mgtData, 'mgt data');
 
@@ -34,7 +35,7 @@ export default function AboutUs({data}) {
       <CITMisionVision />
       <CITStatFull />
       <OfficeWall />
-      <Branch />
+      <Branch data={branchInfo} />
       <DepartmentGrid title="ট্রেইনিং ডিপার্টমেণ্ট" />
     </Layout>
   )
@@ -78,6 +79,11 @@ export const query = graphql`
               sourceUrl
             }
           }
+        }
+        branchInfo {
+          box_color
+          branch_address
+          branch_title
         }
       }
     }

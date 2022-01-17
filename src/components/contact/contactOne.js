@@ -1,6 +1,8 @@
 import React from "react";
 
-const ContactOne = ()=>{
+const ContactOne = (data)=>{
+    const branchData = data.data;
+
     return(
         <section id="office_1">
             <div class="container">
@@ -18,23 +20,27 @@ const ContactOne = ()=>{
                     <div class="col-md-7">
                     <div class="office_address_main">
                         <div class="address_text">
-                            <h3>ঢাকা অফিস</h3>
-                            <ul>
-                                <li>Momtaz Plaza (4th floor)</li>
-                                <li>(Opposite of Labaid Hospital) House#7,</li>
-                                <li>Road#4 Dhanmondi, Dhaka - 1205, Bangladesh</li>
-                            </ul>
+                            <h3>{branchData.branch_title}</h3>
+                            <div className="dtails" dangerouslySetInnerHTML={{ __html: branchData.branch_address }} />
                         </div>
-                        <div class="phone_number">
-                            <h3>ফোন নাম্বার</h3>
-                            <ul>
-                                <li><a href="tel:+880 1624666000">+880 1624666000</a></li>
-                                <li><a href="tel:+880 1624888444">+880 1624888444</a></li>
-                                <li><a href="tel:+880 1966177177">+880 1966177177</a></li>
-                                <li><a href="tel:+880 1990779807">+880 1990779807</a></li>
-                                <li><a href="tel:+880 1990779793">+880 1990779793</a></li>
-                            </ul>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="phone_number">
+                                    <h3>ফোন নাম্বার</h3>
+                                    <div className="dtails" dangerouslySetInnerHTML={{ __html: branchData.branch_phone }} />
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="phone_number address_text">
+                                    <h3>অফিস সময় এবং দর্শন</h3>
+                                    <div className="dtails" dangerouslySetInnerHTML={{ __html: branchData.branch_schedule }} />
+                                    <h3  class="pt-2">ই-মেইল</h3>
+                                    <p className="dtails" dangerouslySetInnerHTML={{ __html: branchData.branch_email }} />
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 import React from "react"
 
 const CITAchievements = (data) => {
+
     const citCertified = data.data;
+    
     return(
         <section id="iso">
             <div class="container">

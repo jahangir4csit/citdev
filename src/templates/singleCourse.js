@@ -82,8 +82,9 @@ export default function SingleCourse({data}){
                     </div>
                     <div class="col-lg-7 pg_banner_img_col">
                         <div class="pg_banner_img position-relative">
-                            {post.featuredImage !== null &&
-                            <img class="img-fluid w-100" src={post.featuredImage.node.sourceUrl} alt="image" />
+                            {post.courseVideoThumbnail !== null ?
+                            <img class="img-fluid w-100" src={post.course_options.courseVideoThumbnail.sourceUrl} alt="image" />
+                            : <img class="img-fluid w-100" src={post.featuredImage.node.sourceUrl} alt="image" />
                             }
                             <div class="overly_icon">
                                 <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={post.course_options.courseVideoUrl !== null ? post.course_options.courseVideoUrl : '1PDg90odyVY'} onClose={() => setOpen(false)} />

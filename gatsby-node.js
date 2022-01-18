@@ -111,6 +111,7 @@ exports.createPages = async ({ graphql, actions }) => {
     //highlight-start
     result.data.allWpCourse.nodes.forEach(node => {
       createPage({
+        //path: encodeURI(node.uri),
         path: node.uri,
         component: path.resolve(`./src/templates/singleCourse.js`),
         context: {

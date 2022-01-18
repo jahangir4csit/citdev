@@ -21,6 +21,7 @@ export default function AboutUs({data}) {
   const certified = pageData.pageSection.citCertified;
   const branchInfo = pageData.branchInfo;
   const initiatives = pageData.initiatives;
+  const photoWall = pageData.citPhotoWall;
 
   console.log(mgtData, 'mgt data');
 
@@ -35,7 +36,7 @@ export default function AboutUs({data}) {
       <CITAchievements data={certified} />
       <CITMisionVision />
       <CITStatFull data={initiatives} />
-      <OfficeWall />
+      <OfficeWall data={photoWall} />
       <Branch data={branchInfo} />
       <DepartmentGrid title="ট্রেইনিং ডিপার্টমেণ্ট" />
     </Layout>
@@ -89,6 +90,9 @@ export const query = graphql`
         initiatives {
           initiv_data
           initiv_title
+        }
+        citPhotoWall {
+          url
         }
       }
     }

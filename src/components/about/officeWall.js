@@ -30,6 +30,8 @@ function SampleNextArrow(props) {
 
 export default function OfficeWall(data){
 
+    const photogallery = data.data;
+
     const [nav1, setNav1] = useState();
     const [nav2, setNav2] = useState();
 
@@ -80,56 +82,16 @@ export default function OfficeWall(data){
                 asNavFor={nav2}
                 ref={(slider1) => setNav1(slider1)}
                 >
+                    {photogallery.map(
+                        photo=>(
                     <div class="col">
                         <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
+                            <img class="img-fluid w-100" src={photo.url} alt="photo" />
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="office_slide_item">
-                            <StaticImage class="img-fluid w-100" src="../../images/about/office-and-training.png" alt="image" />
-                        </div>
-                    </div>
+                        )
+                    )}
+                    
                 </Slider>
 
                 <Slider {...settingsOfficeWallThumb}                                 
@@ -140,36 +102,13 @@ export default function OfficeWall(data){
                     swipeToSlide={true}
                     focusOnSelect={true}
                     >
+                    {photogallery.map(
+                        photothumb=>(
                     <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-1.png" alt="img" />
+                        <img class="img-fluid w-100" src={photothumb.url} alt="photo" />
                     </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-2.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-3.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-4.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-5.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-6.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-7.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-8.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-9.png" alt="img" />
-                    </div>
-                    <div class="traning_slider_item">
-                        <StaticImage class="img-fluid w-100" src="../../images/about/training-5.png" alt="img" />
-                    </div>
+                        )
+                    )}
                     
                 </Slider>
             </div>

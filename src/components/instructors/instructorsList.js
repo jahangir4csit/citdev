@@ -7,9 +7,10 @@ import { useInstructors } from "../hooks/useInstructors";
 import InstructorHead from './instructorHead'
 import Mentor from "./mentor";
 
-export default function InstructorsList(){
+export default function InstructorsList(data){
 
-    const mentors = useInstructors();
+    //const mentors = useInstructors();
+    const mentors = data.data;
     console.log(mentors, 'Mentors');
 
     return(
@@ -18,8 +19,8 @@ export default function InstructorsList(){
                 <div class="row company_item_wrap">
                     <div class="col-12">
                         <div class="success_tabs">
-                            <Tabs defaultActiveKey={mentors.allWpCourseCategory.nodes[0].slug} id="uncontrolled-tab-example" className="success_menu">
-                                {mentors.allWpCourseCategory.nodes.map(
+                            <Tabs defaultActiveKey={mentors[0].slug} id="uncontrolled-tab-example" className="success_menu">
+                                {mentors.map(
                                     catItem=>(
                                     <Tab eventKey={catItem.slug} title={catItem.name}>
                                         <div class="col-12" id="graphics">

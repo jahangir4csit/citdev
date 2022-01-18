@@ -16,7 +16,7 @@ export default function Instructors({data}) {
     <Layout>
       <Seo title={pageData.title} />
       <InstructorDesc data={pageData} />
-      <InstructorsList />
+      <InstructorsList data={courseData} />
       <CourseSlide coursSlide={courseData} />
     </Layout>
   )
@@ -62,6 +62,44 @@ export const query = graphql`
               courseFee
               discountFee
               studentsIn
+            }
+          }
+        }
+        instructors {
+          nodes {
+            title
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+            mentorTrainingExperiences
+            mentorSpecializations {
+              title
+            }
+            mentorDsg
+            mentorStudents
+            mentorPosition
+            instructorsWorkplace {
+              mentorWorkplace {
+                ... on WpCitoption {
+                  title
+                  featuredImage {
+                    node {
+                      sourceUrl
+                    }
+                  }
+                }
+              }
+            }
+            mentorAchievements {
+              url
+            }
+            mentorEducations {
+              title
+            }
+            mentorWorkexperiences {
+              title
             }
           }
         }

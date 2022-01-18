@@ -82,7 +82,7 @@ export default function SingleCourse({data}){
                     </div>
                     <div class="col-lg-7 pg_banner_img_col">
                         <div class="pg_banner_img position-relative">
-                            {post.courseVideoThumbnail !== null ?
+                            {post.course_options.courseVideoThumbnail !== null ?
                             <img class="img-fluid w-100" src={post.course_options.courseVideoThumbnail.sourceUrl} alt="image" />
                             : <img class="img-fluid w-100" src={post.featuredImage.node.sourceUrl} alt="image" />
                             }

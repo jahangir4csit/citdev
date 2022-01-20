@@ -7,7 +7,7 @@ export default function InstructorHead(data){
     return(
         <div class="row m-0 instructor_profile align-items-center">
             <div class="col-lg-4">
-                {head.featuredImage ?
+                {head.featuredImage !== null ?
                 <div class="instructor_img">
                     <img class="img-fluid" src={head.featuredImage.node.sourceUrl} alt="image" />
                 </div>
@@ -27,7 +27,9 @@ export default function InstructorHead(data){
                             <ol>
                             {head.mentorSpecializations.map(
                                 specilized=>(
+                                    specilized.title !== null ?
                                     <li>{specilized.title}</li>
+                                    : ''
                                 )
                             )}                   
                             </ol>
@@ -39,7 +41,9 @@ export default function InstructorHead(data){
                             <ol>
                             {head.mentorEducations.map(
                                 education=>(
+                                    education.title !== null ?
                                     <li>{education.title}</li>
+                                    : ';'
                                 )
                             )}  
                             </ol>
@@ -51,7 +55,9 @@ export default function InstructorHead(data){
                             <ol>
                             {head.mentorWorkexperiences.map(
                                 workexp=>(
+                                workexp.title !== null ?
                                 <li>{workexp.title}</li>
+                                : ''
                                 )
                             )}  
                             </ol>

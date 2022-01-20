@@ -12,14 +12,14 @@ export default function Instructors({data} = JSON.stringify(data, null, 5)) {
   console.log(data, 'json data');
 
   const pageData = data.allWpPage.nodes[0];
-  const courseData = data.allWpCourseCategory.nodes;
+  //const courseData = data.allWpCourseCategory.nodes;
 
   return(
     <Layout>
       <Seo title={pageData.title} />
       <InstructorDesc data={pageData} />
       <InstructorsList />
-      <CourseSlide coursSlide={courseData} />
+      {/* <CourseSlide coursSlide={courseData} /> */}
     </Layout>
   )
 

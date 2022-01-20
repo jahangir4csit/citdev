@@ -7,7 +7,9 @@ import CourseSlide from '../components/courses/CoursesSlide'
 import InstructorsList from "../components/instructors/instructorsList"
 
 
-export default function Instructors({data}) {
+export default function Instructors({data} = JSON.stringify(data, null, 5)) {
+
+  console.log(data, 'json data');
 
   const pageData = data.allWpPage.nodes[0];
   const courseData = data.allWpCourseCategory.nodes;

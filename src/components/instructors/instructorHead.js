@@ -3,11 +3,12 @@ import { StaticImage } from "gatsby-plugin-image";
 
 export default function InstructorHead(data){
     const head = data.data;
+    console.log(head, 'h data');
 
     return(
         <div class="row m-0 instructor_profile align-items-center">
             <div class="col-lg-4">
-                {head.featuredImage !== null ?
+                {head.featuredImage ?
                 <div class="instructor_img">
                     <img class="img-fluid" src={head.featuredImage.node.sourceUrl} alt="image" />
                 </div>
@@ -72,7 +73,7 @@ export default function InstructorHead(data){
                             <div class="market_icon">
                                 {head.instructorsWorkplace.mentorWorkplace.map(
                                     workplace=>(
-                                    workplace.featuredImage !==null ?
+                                    workplace.featuredImage ?
                                     <img class="img-fluid" src={workplace.featuredImage.node.sourceUrl} alt="image" />
                                     : workplace.title.concat('', ', ')
                                     )

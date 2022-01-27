@@ -62,7 +62,6 @@ export default function DepartmentGrid(data){
                             <a href="#" style={boxShadow ? styles.boxStyle.a : styles.boxStyle.none}>
                                 <div className="training_department_item" style={boxShadow ? styles.boxStyle.shadow : styles.boxStyle.none}>
                                     <div class="couse_icon">
-                                        <img src="../images/course-icon-1.png" alt="image" />
                                         <img src={item.categoryThumb.categoryThumbnail.sourceUrl ? item.categoryThumb.categoryThumbnail.sourceUrl : ''} 
                                             alt={item.name} />
                                     </div>

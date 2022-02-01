@@ -74,7 +74,7 @@ const MainNav = ()=>{
                                     <Nav.Link href="/about-us">আমাদের সম্পর্কে</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item as="li">
-                                    <Nav.Link href="/about-us">আমাদের সাথে যোগাযোগ</Nav.Link>
+                                    <Nav.Link href="/about-us">যোগাযোগ</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item class="navbar_btn text-center">
                                     <Link to="/our-courses"><img src={BookButton} alt="icon" />ব্রাউজ কোর্স <i class="fa fa-angle-down ps-2"></i></Link>

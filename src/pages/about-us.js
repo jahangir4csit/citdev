@@ -22,8 +22,9 @@ export default function AboutUs({data}) {
   const branchInfo = pageData.branchInfo;
   const initiatives = pageData.initiatives;
   const photoWall = pageData.citPhotoWall;
+  const statementData = pageData.statementsData;
 
-  console.log(mgtData, 'mgt data');
+  console.log(pageData, 'page data');
 
   return(
     <Layout>
@@ -34,7 +35,7 @@ export default function AboutUs({data}) {
       <CounterUp />
       <MgtBrief data={mgtData} />
       <CITAchievements data={certified} />
-      <CITMisionVision />
+      <CITMisionVision data={statementData} />
       <CITStatFull data={initiatives} />
       <OfficeWall data={photoWall} />
       <Branch data={branchInfo} />
@@ -81,6 +82,12 @@ export const query = graphql`
               sourceUrl
             }
           }
+        }
+        statementsData {
+          cit_state_title
+          cit_state_icon
+          cit_state_details_image
+          cit_state_desc
         }
         branchInfo {
           box_color

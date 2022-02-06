@@ -2830,7 +2830,7 @@ Course-Landing Left (7 column) Overviwe  Area Start
   font-style: normal;
   font-weight: 600;
   line-height: 38px;
-  letter-spacing: 0.20000000298023224px;
+  letter-spacing: 0.2px;
 }
 .pgc_curriculum_wrap .tab-content{
   padding-top: 30px;
@@ -5222,15 +5222,7 @@ form.student_form select {
   border-left: 4px solid transparent;
 }
 
-<<<<<<< HEAD
 #mission .mission_menu .nav-item a svg,#mission .mission_menu .nav-item a img {
-=======
-#mission .mission_menu .nav-item a svg, #mission .mission_menu .nav-item a img {
-  margin-right: 23px;
-  -webkit-transition: all linear .3s;
-  transition: all linear .3s;
-} {
->>>>>>> 0549639232837bd2a751cc016d9e0968898c757c
   margin-right: 23px;
   -webkit-transition: all linear .3s;
   transition: all linear .3s;

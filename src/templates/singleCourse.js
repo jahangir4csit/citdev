@@ -9,6 +9,14 @@ import StudentFeedback from "../components/homepage/studentFeedback"
 import SuccessStorySlider from '../components/successCase/SuccessStorySlider'
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
 import ModalVideo from 'react-modal-video'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+import TabContainer from 'react-bootstrap/TabContainer'
+import TabContent from 'react-bootstrap/TabContent'
+import TabPane from 'react-bootstrap/TabPane'
+import Nav from 'react-bootstrap/Nav'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 export default function SingleCourse({data}){
 
@@ -43,7 +51,7 @@ export default function SingleCourse({data}){
                 <StaticImage class="img-fluid" src="../images/course-landing/Pg_banner_shape4.png" alt="white color dots victor" />
             </div>
             <div class="yellow_shape">
-                <iStaticImagemg src="../images/course-landing/Pg_banner_shape1.png" alt="Yellow color victor shape" />
+                <iStaticImage class="img-fluid" src="../images/course-landing/Pg_banner_shape1.png" alt="Yellow color victor shape" />
             </div>
 
 
@@ -106,11 +114,11 @@ export default function SingleCourse({data}){
                     <div class="col-lg-7">
                         <div class="course_overviwe_text">
                             <h2> কোর্স ওভারভিউ </h2>
-                            {post.course_overview.courseOverview !==null && 
-                            <div className='course_overview_article' dangerouslySetInnerHTML={{ __html: post.course_overview.courseOverview }} />
+                            {post.courseOverview !==null && 
+                            <div className='course_overview_article' dangerouslySetInnerHTML={{ __html: post.courseOverview }} />
                             }
                             <div class="row">
-                                {post.overviewList.map(
+                                {post.crvListItems.map(
                                     overviewListItem =>
                                     <div class="col-md-6">
                                         <ul>
@@ -136,120 +144,80 @@ export default function SingleCourse({data}){
                             <div class="pg_wait">
                                 <h3>আর অপেক্ষা কেনো?</h3>
                                 <p>এই কোর্সে দুটি পদ্ধতিতে ক্লাস হবে, অফলাইন (সরাসরি ইনিষ্টিটিউটে ), অনলাইন (লাইভ ক্লাস) তুমি যে কোন একটি পদ্ধতিতে ভর্তি হতে পারো </p>
+
+                                {post.course_options.courseFee !== null ?
                                 <div class="join_offline">
                                     <h4>জয়েন অফলাইন ব্যাচ</h4>
-                                    <p>৳ ২০০০ টাকা মাত্র</p>
-                                    <a href="desktop-50.html">ভর্তি হবো</a>
+                                    <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
+                                    <a href="#">ভর্তি হবো</a>
                                 </div>
+                                : ''}
+
+                                {post.course_options.courseFeeOnline !== null ?
                                 <div class="join_offline">
-                                    <h4>জয়েন অফলাইন ব্যাচ</h4>
-                                    <p>৳ ২০০০ টাকা মাত্র</p>
-                                    <a href="desktop-50.html">ভর্তি হবো</a>
+                                    <h4>জয়েন অনলাইন ব্যাচ</h4>
+                                    <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
+                                    <a href="#">ভর্তি হবো</a>
                                 </div>
+                                : ''}
+
                                 <div class="wait_btn text-center">
                                     <a href="free-seminer-schedule.html">ফ্রি সেমিনারে জয়েন করবো </a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="pgc_curriculum">
-                            <h3>কোর্স কারিকুলাম</h3>
-                            <ul>
-                                <li>
-                                    <h4>ডিজাইন বেসিক, <span>{post.basicDurations ? post.basicDurations : ''} মাস</span></h4>
-                                    <div class="row">
-                                        {post.basic.map(
-                                          basic=>(
-                                            <>
-                                            {basic.title !==null &&
-
-                                            <div class="col-sm-6">
-                                                <div class="pgc_inner_text">
-                                                    <ul>
-                                                        <li>
-                                                            <span>
-                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
-                                                                    </svg>
-                                                            </span>
-                                                            {basic.title}
-                                                        </li>
-                                                    </ul>
+                        <div class="pgc_curriculum_wrap">
+                            
+                            <Tab.Container id="left-tabs-example" defaultActiveKey={post.crmModuleEntry[0].crm_module_entry_title.split(' ').join('-')}>
+                                <div class="pgc_curriculum_header d-flex align-items-center justify-content-between">
+                                    <h3>কোর্স কারিকুলাম</h3>
+                                    <Nav variant="pills" defaultActiveKey={post.crmModuleEntry[0].crm_module_entry_title.split(' ').join('-')}>
+                                        {post.crmModuleEntry.length > 1 ? 
+                                        post.crmModuleEntry.map(
+                                            modulesNav =>
+                                        <Nav.Item className='navbar_btn'>
+                                            <Nav.Link eventKey={modulesNav.crm_module_entry_title.split(' ').join('-')} className=''>{modulesNav.crm_module_entry_title}</Nav.Link>
+                                        </Nav.Item>
+                                        ) : ''}
+                                    </Nav>
+                                </div>
+                                <Tab.Content>
+                                    {post.crmModuleEntry.map(
+                                        moduleContent=>
+                                    <Tab.Pane className='pgc_curriculum' eventKey={moduleContent.crm_module_entry_title.split(' ').join('-')}>
+                                        <ul>
+                                            {moduleContent.crm_module_meta.map(
+                                                module=>
+                                            <li>
+                                                <h4>{module.crm_module_opt_title} <span>{module.crm_module_opt_duration}</span></h4>
+                                                <div class="row">
+                                                    {module.crm_module_items.map(
+                                                        moduleItems=>
+                                                    <div class="col-sm-6">
+                                                        <div class="pgc_inner_text">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>
+                                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                    {moduleItems.title}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    )}
                                                 </div>
-                                            </div>
+                                            </li>
+                                            )}
+                                        </ul>
+                                    </Tab.Pane>
+                                    )}
+                                </Tab.Content>
+                            </Tab.Container>
 
-                                            }
-                                            </>
-
-                                            )
-                                        )}
-                                        
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <h4>টুলস, <span>{post.toolsDurations ? post.toolsDurations : ''} মাস</span></h4>
-                                    <div class="row">
-
-                                    {post.tools.map(
-                                          tools=>(
-                                            <>
-                                            {tools.title !== null && 
-                                            <div class="col-sm-6">
-                                                <div class="pgc_inner_text">
-                                                    <ul>
-                                                        <li>
-                                                            <span>
-                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
-                                                                    </svg>
-                                                            </span>
-                                                            {tools.title}
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            }
-                                            </>
-                                            )
-                                        )}
-
-
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <h4>প্র্যাক্টিক্যাল প্রজেক্ট , <span>{post.projectsDurations} মাস</span></h4>
-                                    <div class="row">
-
-                                    {post.projects.map(
-                                          projects=>(
-                                              <>
-                                              {projects.title !==null &&
-                                              <div class="col-sm-6">
-                                                <div class="pgc_inner_text">
-                                                    <ul>
-                                                        <li>
-                                                            <span>
-                                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
-                                                                    </svg>
-                                                            </span>
-                                                            {projects.title}
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                </div>
-                                                }
-                                              </>
-
-                                            )
-                                        )}
-
-
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
 
                         <div class="pgc_software">
@@ -417,19 +385,23 @@ export default function SingleCourse({data}){
                             <h3>আর অপেক্ষা কেনো?</h3>
                             <p>এই কোর্সে দুটি পদ্ধতিতে ক্লাস হবে, অফলাইন (সরাসরি ইনিষ্টিটিউটে ), অনলাইন (লাইভ ক্লাস) তুমি যে কোন একটি পদ্ধতিতে ভর্তি হতে পারো </p>
                             <div class="join_offline_main">
+                                {post.course_options.courseFee !== null ?
                                 <div class="join_offline">
                                     <h4>জয়েন অফলাইন ব্যাচ</h4>
-                                    <p>৳ ২০০০ টাকা মাত্র</p>
-                                    <a href="desktop-50.html">ভর্তি হবো</a>
+                                    <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
+                                    <a href="#">ভর্তি হবো</a>
                                 </div>
+                                : ''}
+                                {post.course_options.courseFeeOnline !== null ?
                                 <div class="join_offline">
-                                    <h4>জয়েন অফলাইন ব্যাচ</h4>
-                                    <p>৳ ২০০০ টাকা মাত্র</p>
-                                    <a href="desktop-50.html">ভর্তি হবো</a>
+                                    <h4>জয়েন অনলাইন ব্যাচ</h4>
+                                    <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
+                                    <a href="#">ভর্তি হবো</a>
                                 </div>
+                                : ''}
                             </div>
                             <div class="wait_btn text-center">
-                                <a href="free-seminer-schedule.html">ফ্রি সেমিনারে জয়েন করবো </a>
+                                <a href="#">ফ্রি সেমিনারে জয়েন করবো </a>
                             </div>
                         </div>
                     </div>
@@ -455,28 +427,29 @@ export const query = graphql`
             sourceUrl
           }
         }
-        course_overview {
-            courseOverview
-        }
-        overviewList {
+        courseOverview
+        crvListItems {
             title
         }
         basicDurations
         toolsDurations
         projectsDurations
-        basic {
-          title
-        }
-        tools {
-          title
-        }
-        projects {
-          title
+        crmModuleEntry {
+            crm_module_entry_title
+            crm_module_meta {
+              crm_module_opt_duration
+              crm_module_opt_title
+              crm_module_items {
+                title
+              }
+            }
         }
         course_options {
           courseFee
-          studentsIn
           discountFee
+          courseFeeOnline
+          courseFeeOnlineDiscount
+          studentsIn
           courseDuration
           classPerWeek
           admissionLink

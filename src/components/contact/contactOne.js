@@ -32,7 +32,7 @@ const ContactOne = (data)=>{
                             </div>
                             <div class="col-sm-8">
                                 <div class="phone_number address_text">
-                                    <h3>অফিস সময় এবং দর্শন</h3>
+                                    <h3>অফিস ভিজিটের সময়</h3>
                                     <div className="dtails" dangerouslySetInnerHTML={{ __html: branchData.branch_schedule }} />
                                     <h3  class="pt-2">ই-মেইল</h3>
                                     <p className="dtails" dangerouslySetInnerHTML={{ __html: branchData.branch_email }} />

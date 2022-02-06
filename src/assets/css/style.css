@@ -236,13 +236,23 @@ div.success_menu ul.common_slider_class li {
   font-family: Hind Siliguri;
   color: #fff;
   background: linear-gradient(214.38deg, #FF8079 -2.24%, #FF1E1E 59.38%);
-  border-radius: 10px;
+  border-radius: 10px!important;
   text-align: center;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   padding: 13px 19px;
+  cursor: pointer;
+}
+.navbar_btn .nav-link{
+  background: transparent;
+  border: 1px solid #E9E7ED;
+  color: #1F1E1E;
+  margin-left: 15px;
+}
+.navbar_btn .active{
+  background: linear-gradient(214.38deg, #FF8079 -2.24%, #FF1E1E 59.38%)!important;
 }
 
 .navbar_btn a img {
@@ -2806,14 +2816,14 @@ Course-Landing Left (7 column) Overviwe  Area Start
 }
 
 /* */
-.pgc_curriculum {
+.pgc_curriculum_wrap {
   margin-top: 90px;
   background: #FAF9FD;
   border-radius: 25px;
   padding: 40px;
 }
 
-.pgc_curriculum h3 {
+.pgc_curriculum_wrap h3 {
   color: #1F1E1E;
   font-family: Hind Siliguri;
   font-size: 32px;
@@ -2821,7 +2831,9 @@ Course-Landing Left (7 column) Overviwe  Area Start
   font-weight: 600;
   line-height: 38px;
   letter-spacing: 0.20000000298023224px;
-  padding-bottom: 30px;
+}
+.pgc_curriculum_wrap .tab-content{
+  padding-top: 30px;
 }
 
 .pgc_curriculum > ul > li {
@@ -5210,7 +5222,7 @@ form.student_form select {
   border-left: 4px solid transparent;
 }
 
-#mission .mission_menu .nav-item a svg {
+#mission .mission_menu .nav-item a svg,#mission .mission_menu .nav-item a img {
   margin-right: 23px;
   -webkit-transition: all linear .3s;
   transition: all linear .3s;

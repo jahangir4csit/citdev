@@ -16,28 +16,29 @@ exports.createPages = async ({ graphql, actions }) => {
               sourceUrl
             }
           }
-          course_overview {
-            courseOverview
-          }
-          overviewList {
+          courseOverview
+          crvListItems {
             title
           }
           basicDurations
           toolsDurations
           projectsDurations
-          basic {
-            title
-          }
-          tools {
-            title
-          }
-          projects {
-            title
+          crmModuleEntry {
+            crm_module_entry_title
+            crm_module_meta {
+              crm_module_opt_duration
+              crm_module_opt_title
+              crm_module_items {
+                title
+              }
+            }
           }
           course_options {
             courseFee
-            studentsIn
             discountFee
+            courseFeeOnline
+            courseFeeOnlineDiscount
+            studentsIn
             courseDuration
             classPerWeek
             admissionLink

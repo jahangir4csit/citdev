@@ -20,9 +20,6 @@ exports.createPages = async ({ graphql, actions }) => {
           crvListItems {
             title
           }
-          basicDurations
-          toolsDurations
-          projectsDurations
           crmModuleEntry {
             crm_module_entry_title
             crm_module_meta {

@@ -16,6 +16,20 @@ exports.createPages = async ({ graphql, actions }) => {
               sourceUrl
             }
           }
+          courseOverview
+          crvListItems {
+            title
+          }
+          crmModuleEntry {
+            crm_module_entry_title
+            crm_module_meta {
+              crm_module_opt_duration
+              crm_module_opt_title
+              crm_module_items {
+                title
+              }
+            }
+          }
           course_options {
             courseFee
             discountFee

@@ -166,9 +166,8 @@ export default function SingleCourse({data}){
                                 </div>
                             </div>
                         </div>
-
+                        {post.crmModuleEntry.length > 0 &&
                         <div class="pgc_curriculum_wrap">
-                            
                             <Tab.Container id="left-tabs-example" defaultActiveKey={post.crmModuleEntry[0].crm_module_entry_title.split(' ').join('-')}>
                                 <div class="pgc_curriculum_header d-flex align-items-center justify-content-between">
                                     <h3>কোর্স কারিকুলাম</h3>
@@ -217,8 +216,8 @@ export default function SingleCourse({data}){
                                     )}
                                 </Tab.Content>
                             </Tab.Container>
-
                         </div>
+                        }
 
                         <div class="pgc_software">
                             <h3>যে সকল সফটওয়্যার গুলো শিখবো</h3>

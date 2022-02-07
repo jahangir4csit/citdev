@@ -12,6 +12,12 @@ module.exports = {
         url: `https://cit.creativejuniors.com/graphql`
         //url: `http://localhost/citbd/graphql`
       },
+      schema: {
+        timeout: 50000,
+        perPage: 300,
+        requestConcurrency: 50,
+        previewRequestConcurrency: 50,
+      },
       develop: {
         hardCacheMediaFiles: true,
       },
@@ -58,7 +64,7 @@ module.exports = {
         forceBase64Format: ``, // valid formats: png,jpg,webp
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
-        defaultQuality: 50, 
+        defaultQuality: 90, 
       },
     },
     {

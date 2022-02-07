@@ -25,6 +25,11 @@ module.exports = {
                 5000,
         },
       },
+      debug: {
+        graphql: {
+          showQueryVarsOnError: true,
+        },
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,

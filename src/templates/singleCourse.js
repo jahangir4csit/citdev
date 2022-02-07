@@ -112,7 +112,31 @@ export default function SingleCourse({data}){
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        
+                        <div class="course_overviwe_text">
+                            <h2> কোর্স ওভারভিউ </h2>
+                            {post.courseOverview !==null && 
+                            <div className='course_overview_article' dangerouslySetInnerHTML={{ __html: post.courseOverview }} />
+                            }
+                            <div class="row">
+                                {post.crvListItems.map(
+                                    overviewListItem =>
+                                    <div class="col-md-6">
+                                        <ul>
+                                            {overviewListItem.title !== null &&
+                                            <li>
+                                                <span>
+                                                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.5 8.99979L7.16667 10.6665L10.5 7.33313M15.1817 3.98646C12.5468 4.12639 9.96395 3.2153 8 1.45312C6.03606 3.2153 3.45325 4.12639 0.818337 3.98646C0.606281 4.80739 0.499314 5.65192 0.500003 6.49979C0.500003 11.159 3.68667 15.0748 8 16.1848C12.3133 15.0748 15.5 11.1598 15.5 6.49979C15.5 5.63146 15.3892 4.78979 15.1817 3.98646Z" stroke="#232222" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg></span>
+                                                {overviewListItem.title}
+                                            </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                )}
+                                
+                            </div> 
+                        </div>
 
                         <div class="sm_device-show d-block d-sm-none">
                             
@@ -142,7 +166,58 @@ export default function SingleCourse({data}){
                                 </div>
                             </div>
                         </div>
-
+                        {post.crmModuleEntry.length > 0 &&
+                        <div class="pgc_curriculum_wrap">
+                            <Tab.Container id="left-tabs-example" defaultActiveKey={post.crmModuleEntry[0].crm_module_entry_title.split(' ').join('-')}>
+                                <div class="pgc_curriculum_header d-flex align-items-center justify-content-between">
+                                    <h3>কোর্স কারিকুলাম</h3>
+                                    <Nav variant="pills" defaultActiveKey={post.crmModuleEntry[0].crm_module_entry_title.split(' ').join('-')}>
+                                        {post.crmModuleEntry.length > 1 ? 
+                                        post.crmModuleEntry.map(
+                                            modulesNav =>
+                                        <Nav.Item className='navbar_btn'>
+                                            <Nav.Link eventKey={modulesNav.crm_module_entry_title.split(' ').join('-')} className=''>{modulesNav.crm_module_entry_title}</Nav.Link>
+                                        </Nav.Item>
+                                        ) : ''}
+                                    </Nav>
+                                </div>
+                                <Tab.Content>
+                                    {post.crmModuleEntry.map(
+                                        moduleContent=>
+                                    <Tab.Pane className='pgc_curriculum' eventKey={moduleContent.crm_module_entry_title.split(' ').join('-')}>
+                                        <ul>
+                                            {moduleContent.crm_module_meta.map(
+                                                module=>
+                                            <li>
+                                                <h4>{module.crm_module_opt_title} <span>{module.crm_module_opt_duration}</span></h4>
+                                                <div class="row">
+                                                    {module.crm_module_items.map(
+                                                        moduleItems=>
+                                                    <div class="col-sm-6">
+                                                        <div class="pgc_inner_text">
+                                                            <ul>
+                                                                <li>
+                                                                    <span>
+                                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <rect x="1" y="1" width="10" height="10" stroke="#D4D4D4" stroke-width="2"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                    {moduleItems.title}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    )}
+                                                </div>
+                                            </li>
+                                            )}
+                                        </ul>
+                                    </Tab.Pane>
+                                    )}
+                                </Tab.Content>
+                            </Tab.Container>
+                        </div>
+                        }
 
                         <div class="pgc_software">
                             <h3>যে সকল সফটওয়্যার গুলো শিখবো</h3>
@@ -351,7 +426,20 @@ export const query = graphql`
             sourceUrl
           }
         }
-
+        courseOverview
+        crvListItems {
+            title
+        }
+        crmModuleEntry {
+            crm_module_entry_title
+            crm_module_meta {
+              crm_module_opt_duration
+              crm_module_opt_title
+              crm_module_items {
+                title
+              }
+            }
+        }
         course_options {
           courseFee
           discountFee

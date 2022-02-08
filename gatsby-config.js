@@ -9,14 +9,8 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `http://cit.creativejuniors.com/graphql`,
+        url: `https://cit.creativejuniors.com/graphql`,
         //url: `http://localhost/citbd/graphql`
-        schema: {
-          timeout: 250000,
-          perPage: 100,
-          requestConcurrency: 50,
-          previewRequestConcurrency: 50,
-        },
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -10,6 +10,11 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: `https://cit.creativejuniors.com/graphql`,
+        type: {
+          __all: {
+              limit: process.env.NODE_ENV === `development` ? 50 : null
+          }
+      }
         //url: `http://localhost/citbd/graphql`
       },
     },

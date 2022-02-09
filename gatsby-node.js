@@ -97,7 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         //path: encodeURI(node.uri),
         path: node.uri,
-        component: path.resolve(`./src/templates/singleCourse.js`),
+        component: '',
         context: {
           // This is the $slug variable
           // passed to blog-post.js

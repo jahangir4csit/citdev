@@ -12,7 +12,7 @@ module.exports = {
         //url: `https://bangladeshigf.org/cit/graphql`,
         //url: `https://cit.creativejuniors.com/graphql`,
         //url: `http://localhost/citbd/graphql`
-        url: `https://www.creativeitinstitute.com/citdev21/`,
+        url: `https://www.creativeitinstitute.com/citdev21/graphql`,
       },
     },
     `gatsby-plugin-react-helmet`,

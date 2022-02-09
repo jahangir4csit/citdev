@@ -10,8 +10,9 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         //url: `https://bangladeshigf.org/cit/graphql`,
-        url: `https://cit.creativejuniors.com/graphql`,
+        //url: `https://cit.creativejuniors.com/graphql`,
         //url: `http://localhost/citbd/graphql`
+        url: `https://www.creativeitinstitute.com/citdev21/`,
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -9,12 +9,8 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `https://cit.creativejuniors.com/graphql`,
-        type: {
-          __all: {
-              limit: process.env.NODE_ENV === `development` ? 50 : null
-          }
-      }
+        url: `https://bangladeshigf.org/cit/graphql`,
+        //url: `https://cit.creativejuniors.com/graphql`,
         //url: `http://localhost/citbd/graphql`
       },
     },

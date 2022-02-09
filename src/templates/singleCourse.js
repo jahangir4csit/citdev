@@ -412,5 +412,125 @@ export default function SingleCourse({data}){
     )
 }
 
-
+export const query = graphql`
+  query($id: String!) {
+    allWpCourse(filter: { id: { eq: $id } }) {
+      nodes {
+        title
+        slug
+        uri
+        id
+        content
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        courseOverview
+        crvListItems {
+            title
+        }
+        crmModuleEntry {
+            crm_module_entry_title
+            crm_module_meta {
+              crm_module_opt_duration
+              crm_module_opt_title
+              crm_module_items {
+                title
+              }
+            }
+        }
+        course_options {
+          courseFee
+          discountFee
+          courseFeeOnline
+          courseFeeOnlineDiscount
+          studentsIn
+          courseDuration
+          classPerWeek
+          admissionLink
+          courseVideo
+          courseSubTitle
+          isAdmissionOpen
+          isSeminar
+          seminarLink
+          totalLecture
+          courseVideoUrl
+          courseVideoThumbnail {
+            sourceUrl
+          }
+          softwareForCourse {
+            ... on WpCitoption {
+              id
+              title
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+          }
+          jobPosition {
+            ... on WpCitoption {
+              id
+              title
+            }
+          }
+          jobMarket {
+            ... on WpCitoption {
+              id
+              title
+              content
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+          }
+          courseForWhome {
+            ... on WpCitoption {
+              title
+              id
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+          }
+          courseFacilities {
+            ... on WpCitoption {
+              id
+              title
+              content
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+        studentProjects {
+            url
+          }
+          courseSuccessCase {
+            successCaseLink {
+              ... on WpSuccessStories {
+                successStoryLink {
+                  successStoryLink
+                }
+                featuredImage {
+                    node {
+                      sourceUrl
+                    }
+                }
+              }
+            }
+        }
+      }
+    }
+  }
+`
 

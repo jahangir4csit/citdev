@@ -41,7 +41,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Hind+Siliguri:300,400,500,600,700`, `source sans pro:300,400,500,600,700`
+          `Hind+Siliguri:300,400,500,600,700`, `source sans pro:300,400,500,600,700`,
+          `Roboto:300;0,400;0,500;0,700;0,900`
         ],
         display: 'swap'
       }

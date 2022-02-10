@@ -255,7 +255,7 @@ div.success_menu ul.common_slider_class li {
   background: linear-gradient(214.38deg, #FF8079 -2.24%, #FF1E1E 59.38%)!important;
 }
 
-.navbar_btn a img {
+.navbar_btn a img,.navbar-nav .nav-item:last-child a img {
   padding-right: 9px;
 }
 

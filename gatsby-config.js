@@ -42,7 +42,7 @@ module.exports = {
       options: {
         fonts: [
           `Hind+Siliguri:300,400,500,600,700`, `source sans pro:300,400,500,600,700`,
-          `Roboto:300;0,400;0,500;0,700;0,900`
+          `Roboto:300,400,500,700,900`
         ],
         display: 'swap'
       }

@@ -227,7 +227,7 @@ div.success_menu ul.common_slider_class li {
   text-align: center;
 }
 
-.navbar_btn a {
+.navbar_btn a,.navbar-nav li:last-child a {
   font-family: Hind Siliguri;
   font-size: 18px;
   font-weight: 600;

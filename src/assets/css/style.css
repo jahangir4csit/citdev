@@ -4768,7 +4768,7 @@ Our facilities_item Area End
 
 .instructor_profile_heading h1 {
   color: #1F1E1E;
-  font-family: Hind Siliguri;
+  font-family: "Roboto", Hind Siliguri;
   font-size: 36px;
   font-weight: 600;
   line-height: 26px;
@@ -4778,7 +4778,7 @@ Our facilities_item Area End
 
 .instructor_profile_heading p {
   color: #CF0000;
-  font-family: Ruposhi Bangla Unicode;
+  font-family: "Roboto", Ruposhi Bangla Unicode;
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
@@ -4787,7 +4787,7 @@ Our facilities_item Area End
 
 .instructor_profile_inner_item h4 {
   color: #342B27;
-  font-family: "Roboto", "Ruposhi Bangla Unicode", sans-serif;
+  font-family: "Roboto", Ruposhi Bangla Unicode;
   font-size: 20px;
   font-weight: 700;
   line-height: 26px;
@@ -4803,7 +4803,7 @@ Our facilities_item Area End
 
 .instructor_profile_inner_item ol li {
   color: rgba(52, 43, 39, 0.8);
-  font-family: Ruposhi Bangla Unicode;
+  font-family: "Roboto", Ruposhi Bangla Unicode;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
@@ -4812,7 +4812,7 @@ Our facilities_item Area End
 
 .instructor_profile_inner_item h5 {
   color: #1F1E1E;
-  font-family: Ruposhi Bangla Unicode;
+  font-family: "Roboto", Ruposhi Bangla Unicode;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;

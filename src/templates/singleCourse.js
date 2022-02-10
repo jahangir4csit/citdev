@@ -9,7 +9,6 @@ import StudentFeedback from "../components/homepage/studentFeedback"
 import SuccessStorySlider from '../components/successCase/SuccessStorySlider'
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
 import ModalVideo from 'react-modal-video'
-import { StickyContainer, Sticky } from 'react-sticky';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import TabContainer from 'react-bootstrap/TabContainer'
@@ -18,7 +17,6 @@ import TabPane from 'react-bootstrap/TabPane'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import singleSidebar from '../components/courses/singleSidebar';
 
 export default function SingleCourse({data}){
 
@@ -45,7 +43,6 @@ export default function SingleCourse({data}){
 
     return(
         <Layout>
-        <StickyContainer>
           <section id="profe_graphic_banner">
             <div class="pink_shape">
                 <StaticImage class="img-fluid" src="../images/course-landing/Pg_banner_shape2.png" alt="pink color victor shape" />
@@ -382,20 +379,35 @@ export default function SingleCourse({data}){
 
                     <div class="col-lg-5 d-none d-sm-block">
                         <SuccessStorySlider sdata={post.courseSuccessCase.successCaseLink} />
-                        <Sticky relative={true} topOffset={80}>
 
-                            <singleSidebar 
-                            offlineFee={post.course_options.courseFee}
-                            onlineFee={post.course_options.courseFeeOnline} 
-                            />
-
-                        </Sticky>
+                        <div class="pg_wait">
+                            <h3>আর অপেক্ষা কেনো?</h3>
+                            <p>এই কোর্সে দুটি পদ্ধতিতে ক্লাস হবে, অফলাইন (সরাসরি ইনিষ্টিটিউটে ), অনলাইন (লাইভ ক্লাস) তুমি যে কোন একটি পদ্ধতিতে ভর্তি হতে পারো </p>
+                            <div class="join_offline_main">
+                                {post.course_options.courseFee !== null ?
+                                <div class="join_offline">
+                                    <h4>জয়েন অফলাইন ব্যাচ</h4>
+                                    <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
+                                    <a href="#">ভর্তি হবো</a>
+                                </div>
+                                : ''}
+                                {post.course_options.courseFeeOnline !== null ?
+                                <div class="join_offline">
+                                    <h4>জয়েন অনলাইন ব্যাচ</h4>
+                                    <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
+                                    <a href="#">ভর্তি হবো</a>
+                                </div>
+                                : ''}
+                            </div>
+                            <div class="wait_btn text-center">
+                                <a href="#">ফ্রি সেমিনারে জয়েন করবো </a>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
           </section>
-          </StickyContainer>
+
         </Layout>
     )
 }

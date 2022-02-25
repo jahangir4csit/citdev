@@ -21,25 +21,57 @@ import VirtualTour from "../components/virtualTour"
 export default function HomePage({data}){
 
   const courseData = data.allWpCourseCategory.nodes;
+  const homeData = data.allWpPage.nodes[0];
+  console.log(homeData, 'Home Data');
 
   return(
     <Layout>
       <Seo title="Home" />
       <HomeBanner />
       <DepartmentSlider courseCatInfo={courseData} />
-      <CourseSlide coursSlide={courseData} />
+      <CourseSlide 
+      secHeading={homeData.homeFavouriteCourseSecHeading} 
+      secDesc={homeData.homeFavouriteCourseSecDesc} 
+      coursSlide={courseData} 
+      />
       <CitInfoSlider />
-      <StudentSuccess />
-      <Facilities />
-      <StudentFeedback />
+      <StudentSuccess 
+      secHeading={homeData.homeSuccessSecHeading} 
+      secDesc={homeData.homeSuccessSecDesc} 
+      cases={homeData.homeSuccessCaseItems}
+      />
+      <Facilities 
+      secHeading={homeData.homeFacilitySecHeading} 
+      secDesc={homeData.homeFacilitySecDesc}
+      facilities={homeData.homeSpecialFacilityItems}
+      />
+      <StudentFeedback 
+      secHeading={homeData.homeCommentsSecHeading} 
+      secDesc={homeData.homeCommentsSecDesc}
+      />
       <VirtualTour />
-      <AdmissionCourses coursSlide={courseData} button />
-      <Seminar />
+      <AdmissionCourses 
+      secHeading={homeData.homeAdmissionSecHeading} 
+      secDesc={homeData.homeAdmissionSecDesc}
+      coursSlide={courseData} 
+      button 
+      />
+      <Seminar 
+      secHeading={homeData.homeSeminarSecHeading} 
+      secDesc={homeData.homeSeminarSecDesc}
+      />
       <FeaturedTextOne />
       <FeaturedTextTwo aboutBtn />
       <CounterUp />
-      <Partners />
-      <BlogSlider />
+      <Partners 
+      secHeading={homeData.homePartnersSecHeading} 
+      secDesc={homeData.homePartnersSecDesc}
+      partnersData={homeData.citPartners}
+      />
+      <BlogSlider 
+      secHeading={homeData.homeBlogSecHeading} 
+      secDesc={homeData.homeBlogSecDesc}
+      />
     </Layout>
   )
 }
@@ -84,6 +116,56 @@ query CourseData
       }
     }
   }
+  allWpPage(filter: {slug: {eq: "home"}}) {
+    nodes {
+      homeSuccessSecHeading
+      homeSuccessSecDesc
+      homeSeminarSecHeading
+      homeSeminarSecDesc
+      homePartnersSecHeading
+      homePartnersSecDesc
+      homeFavouriteExcludeCats
+      homeFavouriteCourseSecHeading
+      homeFavouriteCourseSecDesc
+      homeFacilitySecHeading
+      homeFacilitySecDesc
+      homeCommentsSecHeading
+      homeCommentsSecDesc
+      homeBlogSecHeading
+      homeBlogSecDesc
+      homeAdmissionSecHeading
+      homeAdmissionSecDesc
+      homeAdmissionCoursesExcludeCats
+      homeSuccessCaseItems {
+        successStoryLink {
+          successStoryLink
+        }
+        featuredImage {
+          node {
+            sourceUrl
+            title
+          }
+        }
+      }
+      homeSpecialFacilityItems {
+        title
+        excerpt
+        featuredImage {
+          node {
+            sourceUrl
+            title
+          }
+        }
+      }
+      citPartners {
+        cit_partners_tab_title
+        cit_partners_item {
+          partner_logo
+          partner_name
+        }
+      }
+    }
+  }
   
-  }`
+}`
   

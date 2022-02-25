@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Slider from "react-slick";
@@ -31,7 +30,7 @@ function SampleNextArrow(props) {
     );
   }
 
-export default function BlogSlider() {
+export default function BlogSlider(secData) {
 
     const data = useLatestBlogPost();
 
@@ -66,7 +65,7 @@ export default function BlogSlider() {
                 <div class="row">
                     <div class="col-12">
                         <div class="blog_heading">
-                            <h2>ব্লগ এবং প্রেস রিলিজ</h2>
+                            <h2 dangerouslySetInnerHTML={{ __html: secData.secHeading ? secData.secHeading : 'ব্লগ এবং প্রেস রিলিজ' }} />
                         </div>
                     </div>
                     <div class="col-12">

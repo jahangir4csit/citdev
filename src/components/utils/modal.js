@@ -17,7 +17,7 @@ export const ModalVid = (data) => {
     <React.Fragment>
       <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={caseSingle.successStoryLink.successStoryLink} onClose={() => setOpen(false)} />
       <button className="modalvidwrap" onClick={()=> setOpen(true)}>
-        <img class="img-fluid w-100" src={caseSingle.featuredImage.node.sourceUrl} alt={caseSingle.title} />
+        <img class="img-fluid w-100" src={caseSingle.featuredImage.node.sourceUrl} alt={caseSingle.title ? caseSingle.title : 'Image'} />
       </button>
     </React.Fragment>
   )

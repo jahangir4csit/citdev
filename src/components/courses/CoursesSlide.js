@@ -102,7 +102,9 @@ const settingsCourseItem = {
         <section id="courseslide">
             <div class="container populer_courses">
                 <div class="row">
-                    <CourseSlideDesc />
+                    <CourseSlideDesc 
+                    secHeading={data.secHeading} 
+                    secDesc={data.secDesc} />
                     <div class="col-12">
                         <div class="course_mix_btn">
                             <Slider {...settings}

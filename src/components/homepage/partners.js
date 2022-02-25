@@ -7,8 +7,8 @@ import PartnerItem from './partnerItem';
 import MembersItem from './membersItem';
 import OthersPartner from './othersPartners';
 
-const Partners = ()=>{
-
+const Partners = (data)=>{
+    const partners = data.partnersData;
     return(
 
         <section id="company">
@@ -16,36 +16,32 @@ const Partners = ()=>{
                 <div class="row">
                     <div class="col-12">
                         <div class="company_heading">
-                            <h2>আমরা <span>৭০০+</span> কোম্পানি ও সংস্থার সাথে কানেক্টেড</h2>
+                            <h2 dangerouslySetInnerHTML={{ __html: data.secHeading ? data.secHeading : 'আমরা ৭০০+ কোম্পানি ও সংস্থার সাথে কানেক্টেড' }} />
                         </div>
                     </div>
                     <div class="col-12">
-                        <TabContainer id="partners" defaultActiveKey="topCompany">
+                        <TabContainer id="partners" defaultActiveKey="tab_0">
                             <div className='company_menu'>
                                 <Nav variant="tabs" className="dflex" as="ul">
-                                    <Nav.Item as="li">
-                                        <Nav.Link className='company_nav_tab' eventKey="topCompany">দেশ সেরা প্রতিষ্ঠান গুলোর সাথে কাজ করছি</Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item as="li">
-                                        <Nav.Link className='company_nav_tab' eventKey="membars">আমরা যে সকল সংস্থার সদস্য</Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item as="li">
-                                        <Nav.Link className='company_nav_tab' eventKey="others">আমাদের অন্যান্য প্রতিষ্ঠানসমূহ </Nav.Link>
-                                    </Nav.Item>
+                                    {partners.map(
+                                        (partnerNav, index)=>(
+                                            <Nav.Item as="li">
+                                                <Nav.Link className='company_nav_tab' eventKey={'tab_'+index}>{partnerNav.cit_partners_tab_title}</Nav.Link>
+                                            </Nav.Item>
+                                        )
+                                    )}
                                 </Nav>
                             </div>
-                                <TabContent class="company_body tab-content">
-                                    <TabPane className='company_item' eventKey="topCompany">
-                                        <PartnerItem />
-                                    </TabPane>
-                                    <TabPane className='company_item' eventKey="membars">
-                                        <MembersItem />
-                                    </TabPane>
-                                    <TabPane className='company_item' eventKey="others">
-                                        <OthersPartner />
-                                    </TabPane>
-                                </TabContent>
-                            </TabContainer>
+                            <TabContent class="company_body tab-content">
+                                {partners.map(
+                                    (partnerItems, index)=>(
+                                        <TabPane className='company_item' eventKey={'tab_'+index}>
+                                            <PartnerItem partnersinfo={partnerItems.cit_partners_item} />
+                                        </TabPane>
+                                    )
+                                )}
+                            </TabContent>
+                        </TabContainer>
 
                     </div>
                 </div>

@@ -7,11 +7,11 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import googleLogo from '../../images/google_text_icon.png';
 
-const StudentFeedback = ()=>{
+const StudentFeedback = (data)=>{
     return(
         <section id="student_feedback">
             <div class="container">
-                <FeedbackHeading />
+                <FeedbackHeading secHeading={data.secHeading} secDesc={data.secDesc} />
                 <div class="col-12">
                     <FeedbackSliderOne />
                 </div>

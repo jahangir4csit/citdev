@@ -1,11 +1,11 @@
 import React from "react";
 
-const CourseSlideDesc = ()=>{
+const CourseSlideDesc = (data)=>{
     return(
         <div class="col-12">
             <div class="section_heading">
-                <h2>জনপ্রিয় কোর্সসমূহ</h2>
-                <p>দেশ ও দেশের বাইরে বর্তমানে যে স্কিলগুলোর চাহিদা সবচেয়ে বেশি, সেসব দিয়েই সাজানো হয়েছে আমাদের কোর্স লিস্ট। এখান থেকে আপনার সুবিধামত অনলাইন বা অফলাইনে কোর্সে এনরোল করতে পারবেন যেকোনো সময়। </p>
+                <h2 dangerouslySetInnerHTML={{ __html: data.secHeading ? data.secHeading : 'জনপ্রিয় কোর্সসমূহ' }} />
+                <p dangerouslySetInnerHTML={{ __html: data.secDesc }} />
             </div>
         </div>
     )

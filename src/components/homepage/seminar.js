@@ -2,16 +2,15 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
-const Seminar = ()=>{
+const Seminar = (data)=>{
     return(
         <section id="seminar">
             <div class="container seminar">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="seminar_content">
-                            <h2>জয়েন ফ্রি সেমিনার</h2>
-                            <p>আপনাদের সাথে কথা বলে আমাদের এক্সপার্ট কাউন্সিলর আপনাকে যথাযথ কোর্সটির সন্ধান দিতে সাহায্য
-                                করবে</p>
+                            <h2 dangerouslySetInnerHTML={{ __html: data.secHeading ? data.secHeading : 'জয়েন ফ্রি সেমিনার' }} />
+                            <p dangerouslySetInnerHTML={{ __html: data.secDesc }} />
                             <h3>আপকামিং ফ্রি সেমিনার</h3>
                             <ul>
                                 <li>

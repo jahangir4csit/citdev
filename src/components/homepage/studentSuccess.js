@@ -5,10 +5,10 @@ import { useFeaturedCases } from "../hooks/useSuccessCaseFeatured";
 import CaseItem from "../successCase/caseItem";
 
 
-const StudentSuccess = ()=>{
+const StudentSuccess = (data)=>{
 
-    const successStoryHome = useFeaturedCases();
-    const ftStoryItem = successStoryHome.allWpSuccessStories.nodes;
+    //const successStoryHome = useFeaturedCases();
+    //const ftStoryItem = successStoryHome.allWpSuccessStories.nodes;
 
     const [isOpen, setOpen] = useState(false)
 
@@ -18,11 +18,11 @@ const StudentSuccess = ()=>{
                 <div class="row">
                     <div class="col-12">
                         <div class="section_heading">
-                            <h2>সফলতার গল্প</h2>
-                            <p>আমাদের শিক্ষার্থীদের সফলতার প্রতিটি গল্প ক্রিয়েটিভ আইটি ইন্সটিটিউটের এগিয়ে চলায় উদ্দীপনা যোগায় প্রতিটি মুহূর্তে।</p>
+                            <h2 dangerouslySetInnerHTML={{ __html: data.secHeading ? data.secHeading : 'সফলতার গল্প' }} />
+                            <p dangerouslySetInnerHTML={{ __html: data.secDesc }} />
                         </div>
                     </div>
-                    {ftStoryItem.map(
+                    {data.cases.map(
                         storyItem=>(
                             <CaseItem data={storyItem} />
                         )

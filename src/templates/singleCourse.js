@@ -332,7 +332,7 @@ export default function SingleCourse({data}){
                             {post.course_options.courseFacilities.map(
                                           courseFacility=>(
                                 <div class="col-md-6">
-                                    <div class="pg_more_facilities_item pg_more_facilities_item_1">
+                                    <div class="pg_more_facilities_item pg_more_facilities_item_1" style={{ 'backgroundColor': courseFacility.facilityBoxBg }}>
                                         {courseFacility.featuredImage !==null && 
                                         <img src={courseFacility.featuredImage.node.sourceUrl} alt={courseFacility.title} />
                                         }

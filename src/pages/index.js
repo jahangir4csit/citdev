@@ -150,6 +150,7 @@ query CourseData
       homeSpecialFacilityItems {
         title
         excerpt
+        facilityBoxBg
         featuredImage {
           node {
             sourceUrl

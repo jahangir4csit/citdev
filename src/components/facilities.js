@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 const Facilities = (data)=>{
     
     const facilityItems = data.facilities;
+    console.log(facilityItems, 'facility');
 
     return(
         <section id="more_facilities">
@@ -20,7 +21,7 @@ const Facilities = (data)=>{
                     {facilityItems.map(
                         facility=>(
                         <div class="col-lg-4 col-md-6">
-                            <div class="more_facilities_item more_facilities_item_1">
+                            <div class="more_facilities_item more_facilities_item_1" style={{ 'backgroundColor': facility.facilityBoxBg }}>
                                 {facility.featuredImage !== null ?
                                 <img src={facility.featuredImage.node.sourceUrl} alt={facility.featuredImage.node.title} />
                                 : ''}

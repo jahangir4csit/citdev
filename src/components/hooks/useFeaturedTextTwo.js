@@ -1,10 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-export const useFeaturedText = () => {
+export const useFeaturedTextTwo = () => {
     const data = useStaticQuery(graphql`
-    query FeaturedText {
-      allWpSection(filter: {databaseId: {eq: 807}}) {
+    query FeaturedTextTwo {
+      allWpSection(filter: {databaseId: {eq: 2112}}) {
         nodes {
           title
           featuredImage {
@@ -14,6 +14,11 @@ export const useFeaturedText = () => {
             }
           }
           citFeaturedTextDesc
+          citFeaturedTextSubheading
+          featuredTextBtn {
+            button_title
+            button_url
+          }
         }
       }
     }

@@ -23,8 +23,8 @@ const FeaturedTextOne = ()=>{
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-md-6">
                     <div class="practical_project_text">
-                        <h2 dangerouslySetInnerHTML={{ __html: ftOne.featuredTextOne.title }} />
-                        <div dangerouslySetInnerHTML={{ __html: ftOne.featuredTextOne.description }} />
+                        <h2 dangerouslySetInnerHTML={{ __html: ftOne.title }} />
+                        <div dangerouslySetInnerHTML={{ __html: ftOne.citFeaturedTextDesc }} />
                     </div>
                 </div>
             </div>

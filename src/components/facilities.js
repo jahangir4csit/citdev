@@ -25,7 +25,7 @@ const Facilities = (data)=>{
                                 <img src={facility.featuredImage.node.sourceUrl} alt={facility.featuredImage.node.title} />
                                 : ''}
                                 <h3 dangerouslySetInnerHTML={{ __html: facility.title }} />
-                                <p dangerouslySetInnerHTML={{ __html: facility.excerpt }} />
+                                <div dangerouslySetInnerHTML={{ __html: facility.excerpt }} />
                             </div>
                         </div>
                         )

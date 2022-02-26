@@ -504,6 +504,7 @@ export const query = graphql`
               id
               title
               content
+              facilityBoxBg
               featuredImage {
                 node {
                   sourceUrl

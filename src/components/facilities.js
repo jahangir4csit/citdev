@@ -3,6 +3,9 @@ import { StaticImage } from "gatsby-plugin-image";
 
 
 const Facilities = (data)=>{
+    
+    const facilityItems = data.facilities;
+
     return(
         <section id="more_facilities">
             <div class="container">
@@ -14,7 +17,7 @@ const Facilities = (data)=>{
                         </div>
                     </div>
 
-                    {data.facilities.map(
+                    {facilityItems.map(
                         facility=>(
                         <div class="col-lg-4 col-md-6">
                             <div class="more_facilities_item more_facilities_item_1">

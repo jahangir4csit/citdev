@@ -10,11 +10,12 @@ import StudentFeedback from "../components/homepage/studentFeedback"
 export default function Courses({data}){
 
 const courseData = data.allWpCourseCategory.nodes;
+const page = data.allWpPage.nodes[0];
 
     return(
     <Layout>
         <Seo title="Our Courses" />
-        <CoursePageHeading />
+        <CoursePageHeading  data={page} />
         <DepartmentGrid marginTop="0" boxShadow />
         <AdmissionCoursesList coursSlide={courseData} />
         <StudentFeedback />
@@ -59,6 +60,12 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    allWpPage(filter: {slug: {eq: "our-courses"}}) {
+      nodes {
+        title
+        content
       }
     }
   }

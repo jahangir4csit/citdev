@@ -10,7 +10,7 @@ const SuccessStoryDesc = (pagedata)=>{
                 <div class="row">
                     <div class="col-12">
                         <div class="navbar_btn text-center d-md-none">
-                            <a href="our-courses.html"><StaticImage src="../images/Button-book.png" alt="icon" />ব্রাউজ কোর্স <FontAwesomeIcon icon={faAngleDown}/> </a>
+                            <a href="our-courses.html"><StaticImage src="../../images/Button-book.png" alt="icon" />ব্রাউজ কোর্স <FontAwesomeIcon icon={faAngleDown}/> </a>
                         </div>
 
                         <div class="facilities_heading all_courses">

@@ -10,7 +10,6 @@ const AdmissionCoursesList = (data)=>{
 
 const courseDataList = data.coursSlide;
 const button = data.button ? data.button : null;
-console.log(courseDataList, 'admission cat');
 const excludeTrmId = 673;
 const courseData = courseDataList.filter(function(item){ return item.termTaxonomyId != excludeTrmId });
 
@@ -20,9 +19,8 @@ const courseData = courseDataList.filter(function(item){ return item.termTaxonom
                 <div class="row">
                     <div class="col-12">
                         <div class="section_heading">
-                            <h2>সকল কোর্সে ভর্তি চলছে</h2>
-                            <p>তখন প্রধানমন্ত্রী বলেছিলেন, ‘ফ্রিল্যান্সিংয়ের মাধ্যমে মানুষ অর্থ উপার্জন করছে ঘরে বসে, গ্রামে
-                                বসে। কিন্তু এর কোনো আসলে প্রাতিষ্ঠানিক স্বীকৃতি ছিলো না।</p>
+                            <h2 dangerouslySetInnerHTML={{ __html: data.secheading }} />
+                            <p dangerouslySetInnerHTML={{ __html: data.secdesc }} />
                         </div>
                     </div>
 

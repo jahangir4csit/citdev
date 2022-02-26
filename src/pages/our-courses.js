@@ -17,7 +17,11 @@ const page = data.allWpPage.nodes[0];
         <Seo title="Our Courses" />
         <CoursePageHeading  data={page} />
         <DepartmentGrid marginTop="0" boxShadow />
-        <AdmissionCoursesList coursSlide={courseData} />
+        <AdmissionCoursesList 
+        coursSlide={courseData} 
+        secheading={page.admissionSecHeading} 
+        secdesc={page.admissionSecDesc} 
+        />
         <StudentFeedback />
     </Layout>
     )
@@ -66,6 +70,8 @@ export const query = graphql`
       nodes {
         title
         content
+        admissionSecHeading
+        admissionSecDesc
       }
     }
   }

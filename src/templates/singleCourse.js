@@ -142,22 +142,22 @@ export default function SingleCourse({data}){
                             
                             <SuccessStorySlider />
                             <div class="pg_wait">
-                                <h3>আর অপেক্ষা কেনো?</h3>
-                                <p>এই কোর্সে দুটি পদ্ধতিতে ক্লাস হবে, অফলাইন (সরাসরি ইনিষ্টিটিউটে ), অনলাইন (লাইভ ক্লাস) তুমি যে কোন একটি পদ্ধতিতে ভর্তি হতে পারো </p>
+                                <h3>ভর্তি চলছে!</h3>
+                                <p>অফলাইন (সরাসরি ইন্সটিটিউটে) বা অনলাইন (লাইভ ক্লাস)- যে কোন ব্যাচে সুবিধামতো সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই। </p>
 
                                 {post.course_options.courseFee !== null ?
                                 <div class="join_offline">
-                                    <h4>জয়েন অফলাইন ব্যাচ</h4>
+                                    <h4>অফলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
-                                    <a href="#">ভর্তি হবো</a>
+                                    <a href="#">ভর্তি</a>
                                 </div>
                                 : ''}
 
                                 {post.course_options.courseFeeOnline !== null ?
                                 <div class="join_offline">
-                                    <h4>জয়েন অনলাইন ব্যাচ</h4>
+                                    <h4>অনলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
-                                    <a href="#">ভর্তি হবো</a>
+                                    <a href="#">ভর্তি</a>
                                 </div>
                                 : ''}
 
@@ -388,19 +388,19 @@ export default function SingleCourse({data}){
                         <SuccessStorySlider sdata={post.courseSuccessCase.successCaseLink} />
 
                         <div class="pg_wait">
-                            <h3>আর অপেক্ষা কেনো?</h3>
-                            <p>এই কোর্সে দুটি পদ্ধতিতে ক্লাস হবে, অফলাইন (সরাসরি ইনিষ্টিটিউটে ), অনলাইন (লাইভ ক্লাস) তুমি যে কোন একটি পদ্ধতিতে ভর্তি হতে পারো </p>
+                            <h3>ভর্তি চলছে!</h3>
+                            <p>অফলাইন (সরাসরি ইন্সটিটিউটে) বা অনলাইন (লাইভ ক্লাস)- যে কোন ব্যাচে সুবিধামতো সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই। </p>
                             <div class="join_offline_main">
                                 {post.course_options.courseFee !== null ?
                                 <div class="join_offline">
-                                    <h4>জয়েন অফলাইন ব্যাচ</h4>
+                                    <h4>অফলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
                                     <a href="#">ভর্তি</a>
                                 </div>
                                 : ''}
                                 {post.course_options.courseFeeOnline !== null ?
                                 <div class="join_offline">
-                                    <h4>জয়েন অনলাইন ব্যাচ</h4>
+                                    <h4>অনলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
                                     <a href="#">ভর্তি</a>
                                 </div>

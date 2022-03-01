@@ -390,19 +390,19 @@ export default function SingleCourse({data}){
                                 <div class="join_offline">
                                     <h4>জয়েন অফলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
-                                    <a href="#">ভর্তি হবো</a>
+                                    <a href="#">ভর্তি</a>
                                 </div>
                                 : ''}
                                 {post.course_options.courseFeeOnline !== null ?
                                 <div class="join_offline">
                                     <h4>জয়েন অনলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
-                                    <a href="#">ভর্তি হবো</a>
+                                    <a href="#">ভর্তি</a>
                                 </div>
                                 : ''}
                             </div>
                             <div class="wait_btn text-center">
-                                <a href="#">ফ্রি সেমিনারে জয়েন করবো </a>
+                                <a href="#">ফ্রি সেমিনার</a>
                             </div>
                         </div>
                     </div>

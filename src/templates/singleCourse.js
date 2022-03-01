@@ -348,7 +348,7 @@ export default function SingleCourse({data}){
                             </div>
                         </div>
                         
-                        {post.studentProjects ? 
+                        {post.studentProjects.length > 0 ? 
                         <div class="pgs_project">
                             <div class="row">
                                 <h2>আমাদের স্টুডেন্টদের করা কিছু প্রজেক্ট</h2>

@@ -67,7 +67,7 @@ export default function SingleCourse({data}){
                                 <li>প্রজেক্ট<span>{post.course_options.classPerWeek !==null ? post.course_options.classPerWeek : ''}টি</span></li>
                             </ul>
                             {post.content !==null &&
-                            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                            <div className='course_desc_article' dangerouslySetInnerHTML={{ __html: post.content }} />
                             }
                             <div class="pg_banner_btn">
                                 <a href="desktop-50.html">ভর্তি হবো</a>

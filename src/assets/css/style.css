@@ -2657,7 +2657,7 @@ professional Graphic banner Area Start
   letter-spacing: 0.11224490404129028px;
   text-align: center;
 }
-.pg_banner_text > div {
+.pg_banner_text > .course_desc_article {
   padding-top: 15px;
   padding-bottom: 36px;
 }

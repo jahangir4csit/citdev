@@ -220,7 +220,7 @@ export default function SingleCourse({data}){
                         }
                         {post.course_options.softwareForCourse.length > 0 ? 
                         <div class="pgc_software">
-                            <h3>যে সকল সফটওয়্যার গুলো শিখবো</h3>
+                            <h3>যেসব সফটওয়্যার শেখানো হয়</h3>
                             <div class="row">
                             {post.course_options.softwareForCourse.map(
                                           softwareItem=>(
@@ -330,7 +330,7 @@ export default function SingleCourse({data}){
                         : '' }
                         {post.course_options.courseFacilities.length > 0 ?
                         <div class="pgs_facilitice">
-                            <h3>শিক্ষার্থিদের আরও যে সকল সুবিধা দিয়ে থাকি</h3>
+                            <h3>ক্রিয়েটিভ আইটির বিশেষ সেবা</h3>
                             <div class="row">
 
                             {post.course_options.courseFacilities.map(
@@ -356,7 +356,7 @@ export default function SingleCourse({data}){
                         {post.studentProjects.length > 0 ? 
                         <div class="pgs_project">
                             <div class="row">
-                                <h2>আমাদের স্টুডেন্টদের করা কিছু প্রজেক্ট</h2>
+                                <h2>আমাদের শিক্ষার্থীদের কিছু প্রোজেক্ট</h2>
                                 
                                 <div class="col-12">
                                     <Slider {...settingsProjectsSlider}>

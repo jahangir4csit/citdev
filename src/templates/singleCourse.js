@@ -70,8 +70,8 @@ export default function SingleCourse({data}){
                             <div className='course_desc_article' dangerouslySetInnerHTML={{ __html: post.content }} />
                             }
                             <div class="pg_banner_btn">
-                                <a href="desktop-50.html">ভর্তি হবো</a>
-                                <a href="free-seminer-schedule.html">ফ্রি সেমিনারে জয়েন করবো</a>
+                                <a href="desktop-50.html">ভর্তি</a>
+                                <a href="free-seminer-schedule.html">ফ্রি সেমিনার</a>
                             </div>
                             <div class="stars">
                                 <p>

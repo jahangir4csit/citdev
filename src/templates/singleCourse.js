@@ -62,11 +62,11 @@ export default function SingleCourse({data}){
                             <h4>{post.course_options.courseSubTitle ? post.course_options.courseSubTitle : ''}</h4>
                             <h1>{post.title ? post.title : ''}<span class="d-block d-sm-none">স্কিল এর সাথে</span></h1>
                             <ul>
-                                <li>কোর্সের মেয়াদ<span>{post.course_options.courseDuration !== null ? post.course_options.courseDuration : ''}</span></li>
-                                <li>লেকচার<span>{post.course_options.totalLecture !== null ? post.course_options.totalLecture : ''}টি</span></li>
-                                <li>প্রজেক্ট<span>{post.course_options.classPerWeek !==null ? post.course_options.classPerWeek : ''}টি</span></li>
+                                <li>কোর্সের মেয়াদ<span>{post.course_options.courseDuration !=null ? post.course_options.courseDuration : ''}</span></li>
+                                <li>লেকচার<span>{post.course_options.totalLecture !=null ? post.course_options.totalLecture : ''}টি</span></li>
+                                <li>প্রজেক্ট<span>{post.course_options.classPerWeek !=null ? post.course_options.classPerWeek : ''}টি</span></li>
                             </ul>
-                            {post.content !==null &&
+                            {post.content !=null &&
                             <div className='course_desc_article' dangerouslySetInnerHTML={{ __html: post.content }} />
                             }
                             <div class="pg_banner_btn">
@@ -75,12 +75,18 @@ export default function SingleCourse({data}){
                             </div>
                             <div class="stars">
                                 <p>
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStarHalfAlt} />
-                                     25 Reviews <span>২১২ স্টুডেন্ট</span></p>
+                                    {post.course_options.reviewsCount &&
+                                    <Fragment>
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStarHalfAlt} />
+                                    {post.course_options.reviewsCount } Reviews 
+                                    </Fragment>}
+                                    {post.course_options.studentsIn &&
+                                    <span>{post.course_options.studentsIn} স্টুডেন্ট</span>}
+                                </p>
                             </div>
                             <div class="countdown_sm_device">
                                 <p>৩০% ছাড়ের <span id="day"></span><span id="hour"></span><span id="min"></span> বাকি!</p>
@@ -90,7 +96,7 @@ export default function SingleCourse({data}){
                     </div>
                     <div class="col-lg-7 pg_banner_img_col">
                         <div class="pg_banner_img position-relative">
-                            {post.course_options.courseVideoThumbnail !== null ?
+                            {post.course_options.courseVideoThumbnail !=null ?
                             <img class="img-fluid w-100" src={post.course_options.courseVideoThumbnail.sourceUrl} alt="image" />
                             : <img class="img-fluid w-100" src={post.featuredImage.node.sourceUrl} alt="image" />
                             }
@@ -114,7 +120,7 @@ export default function SingleCourse({data}){
                     <div class="col-lg-7">
                         <div class="course_overviwe_text">
                             <h2> কোর্স ওভারভিউ </h2>
-                            {post.courseOverview !==null && 
+                            {post.courseOverview !=null && 
                             <div className='course_overview_article' dangerouslySetInnerHTML={{ __html: post.courseOverview }} />
                             }
                             <div class="row">
@@ -122,7 +128,7 @@ export default function SingleCourse({data}){
                                     overviewListItem =>
                                     <div class="col-md-6">
                                         <ul>
-                                            {overviewListItem.title !== null &&
+                                            {overviewListItem.title != null &&
                                             <li>
                                                 <span>
                                                 <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +151,7 @@ export default function SingleCourse({data}){
                                 <h3>ভর্তি চলছে!</h3>
                                 <p>অফলাইন (সরাসরি ইন্সটিটিউটে) বা অনলাইন (লাইভ ক্লাস)- যে কোন ব্যাচে সুবিধামতো সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই। </p>
 
-                                {post.course_options.courseFee !== null ?
+                                {post.course_options.courseFee != null ?
                                 <div class="join_offline">
                                     <h4>অফলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
@@ -153,7 +159,7 @@ export default function SingleCourse({data}){
                                 </div>
                                 : ''}
 
-                                {post.course_options.courseFeeOnline !== null ?
+                                {post.course_options.courseFeeOnline != null ?
                                 <div class="join_offline">
                                     <h4>অনলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
@@ -227,12 +233,12 @@ export default function SingleCourse({data}){
 
                                 <div class="col-6">
                                     <div class="pgc_item d-flex align-items-center">
-                                        {softwareItem.featuredImage !== null &&
+                                        {softwareItem.featuredImage !=null &&
                                         <div class="pgcs_icon">
                                           <img class="img-fluid w-100" src={softwareItem.featuredImage.node.sourceUrl} alt="image" />
                                         </div>
                                         }
-                                        {softwareItem.title !==null &&
+                                        {softwareItem.title !=null &&
                                         <div class="pgcs_text">
                                           <p>{softwareItem.title}</p>
                                         </div>
@@ -246,7 +252,7 @@ export default function SingleCourse({data}){
                             </div>
                         </div>
                         : '' }
-                        {post.course_options.courseForWhome.length > 0 ?
+                        {post.course_options.courseForWhome !=null && post.course_options.courseForWhome.length > 0 ?
                         <div class="pgc_for_whom">
                             <h3>এই কোর্স যাদের জন্য</h3>
                             <div class="row">
@@ -257,11 +263,11 @@ export default function SingleCourse({data}){
                                 <div class="col-6">
                                     <div class="pgcf_whom_item">
                                         <div class="pgcf_whom_item_icon">
-                                            {courseforWItem.featuredImage !== null && 
+                                            {courseforWItem.featuredImage !=null && 
                                             <img class="img-fluid" src={courseforWItem.featuredImage.node.sourceUrl} alt={courseforWItem.title} />
                                             }
                                         </div>
-                                        {courseforWItem.title !==null &&
+                                        {courseforWItem.title !=null &&
                                         <div class="pgcf_whom_item_text">
                                             <p>{courseforWItem.title}</p>
                                         </div>
@@ -274,7 +280,7 @@ export default function SingleCourse({data}){
                             </div>
                         </div>
                         : '' }
-                        {post.course_options.jobMarket.length > 0 ?
+                        {post.course_options.jobMarket !=null && post.course_options.jobMarket.length > 0 ?
                         <div class="pg_marketplace">
                             <h2>আপনি যেখানে কাজ করতে পারেন</h2>
                             <div class="row">
@@ -285,11 +291,11 @@ export default function SingleCourse({data}){
                                 <div class="col-sm-6">
                                     <div class="marketplace_item">
                                         <div class="icon">
-                                            {jobMarket.featuredImage !==null && 
+                                            {jobMarket.featuredImage !=null && 
                                             <img src={jobMarket.featuredImage.node.sourceUrl} alt={jobMarket.title}/>
                                             }
                                         </div>
-                                        {jobMarket.content !==null &&
+                                        {jobMarket.content !=null &&
                                         <div class="text">
                                             <div dangerouslySetInnerHTML={{ __html: jobMarket.content }} />
                                         </div>
@@ -303,7 +309,7 @@ export default function SingleCourse({data}){
                             </div>
                         </div>
                         : '' }
-                        {post.course_options.jobPosition.length > 0 ?
+                        {post.course_options.jobPosition !=null && post.course_options.jobPosition.length > 0 ?
                         <div class="pg_job">
                             <h3> যে সকল পজিশনে জব করতে পারবেন </h3>
                             <div class="row g-0">
@@ -311,7 +317,7 @@ export default function SingleCourse({data}){
                             {post.course_options.jobPosition.map(
                                           jobPosition=>(
                                               <>
-                                            {jobPosition.title !==null && 
+                                            {jobPosition.title !=null && 
                                             <div class="col-6">
                                                 <div class="job_item">
                                                     <ul>
@@ -328,7 +334,7 @@ export default function SingleCourse({data}){
                             </div>
                         </div>
                         : '' }
-                        {post.course_options.courseFacilities.length > 0 ?
+                        {post.course_options.courseFacilities !=null && post.course_options.courseFacilities.length > 0 ?
                         <div class="pgs_facilitice">
                             <h3>ক্রিয়েটিভ আইটির বিশেষ সেবা</h3>
                             <div class="row">
@@ -337,11 +343,11 @@ export default function SingleCourse({data}){
                                           courseFacility=>(
                                 <div class="col-md-6">
                                     <div class="pg_more_facilities_item pg_more_facilities_item_1" style={{ 'backgroundColor': courseFacility.facilityBoxBg }}>
-                                        {courseFacility.featuredImage !==null && 
+                                        {courseFacility.featuredImage !=null && 
                                         <img src={courseFacility.featuredImage.node.sourceUrl} alt={courseFacility.title} />
                                         }
-                                        {courseFacility.title !==null && <h3>{courseFacility.title}</h3>}
-                                        {courseFacility.content !==null &&
+                                        {courseFacility.title !=null && <h3>{courseFacility.title}</h3>}
+                                        {courseFacility.content !=null &&
                                         <div dangerouslySetInnerHTML={{ __html: courseFacility.content }} />
                                         }
                                     </div>
@@ -353,7 +359,7 @@ export default function SingleCourse({data}){
                         </div>
                         : '' }
                         
-                        {post.studentProjects.length > 0 ? 
+                        {post.studentProjects !=null && post.studentProjects.length > 0 ? 
                         <div class="pgs_project">
                             <div class="row">
                                 <h2>আমাদের শিক্ষার্থীদের কিছু প্রোজেক্ট</h2>
@@ -363,7 +369,7 @@ export default function SingleCourse({data}){
                                     {post.studentProjects.map(
                                         item=> (
                                             <div>
-                                                {item.url !==null &&
+                                                {item.url !=null &&
                                                 <div class="pgp_slide_item">
                                                     <img class="img-fluid w-100" src={item.url} alt="image" />
                                                 </div>
@@ -391,14 +397,14 @@ export default function SingleCourse({data}){
                             <h3>ভর্তি চলছে!</h3>
                             <p>অফলাইন (সরাসরি ইন্সটিটিউটে) বা অনলাইন (লাইভ ক্লাস)- যে কোন ব্যাচে সুবিধামতো সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই। </p>
                             <div class="join_offline_main">
-                                {post.course_options.courseFee !== null ?
+                                {post.course_options.courseFee !=null ?
                                 <div class="join_offline">
                                     <h4>অফলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
                                     <a href="#">ভর্তি</a>
                                 </div>
                                 : ''}
-                                {post.course_options.courseFeeOnline !== null ?
+                                {post.course_options.courseFeeOnline !=null ?
                                 <div class="join_offline">
                                     <h4>অনলাইন ব্যাচ</h4>
                                     <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
@@ -453,6 +459,7 @@ export const query = graphql`
           courseFeeOnline
           courseFeeOnlineDiscount
           studentsIn
+          reviewsCount
           courseDuration
           classPerWeek
           admissionLink

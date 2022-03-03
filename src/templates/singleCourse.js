@@ -218,7 +218,7 @@ export default function SingleCourse({data}){
                             </Tab.Container>
                         </div>
                         }
-                        {post.course_options.softwareForCourse.length > 0 ? 
+                        {post.course_options.softwareForCourse != null && post.course_options.softwareForCourse.length > 0 ? 
                         <div class="pgc_software">
                             <h3>যেসব সফটওয়্যার শেখানো হয়</h3>
                             <div class="row">

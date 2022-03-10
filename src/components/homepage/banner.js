@@ -68,7 +68,7 @@ const HomeBanner = ()=>{
                         <ul>
                             <li>
                                 <img src={isoLogo} alt="logo" />
-                                <p>দেশের এক মাত্র iSO সার্টিফাইড আইটি <span>ট্রেইনিং ইনিস্টিটিউট</span></p>
+                                <p>দেশের এক মাত্র iSO সার্টিফাইড আইটি <span>ট্রেনিং ইনিস্টিটিউট</span></p>
                             </li>
                         </ul>
                     </div>

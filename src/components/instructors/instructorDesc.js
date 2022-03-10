@@ -22,7 +22,7 @@ export default function InstructorDesc(data){
                                 <StaticImage src="../../images/teachers/item-1.png" alt="image" />
                             </div>
                             <div class="text">
-                                <h4>৩০ <span>ডিপার্টমেণ্ট</span></h4>
+                                <h4>৩০ <span>ডিপার্টমেন্ট</span></h4>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ export default function InstructorDesc(data){
                                 <StaticImage src="../../images/teachers/item-2.png" alt="image" />
                             </div>
                             <div class="text">
-                                <h4>৩০ <span>ডিপার্টমেণ্ট</span></h4>
+                                <h4>৩০ <span>শিক্ষকবৃন্দ</span></h4>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export default function InstructorDesc(data){
                                 <StaticImage src="../../images/teachers/item-3.png" alt="image" />
                             </div>
                             <div class="text">
-                                <h4>৩০ <span>ডিপার্টমেণ্ট</span></h4>
+                                <h4>৩০ <span>২৪/৭ সাপোর্ট মেন্টর</span></h4>
                             </div>
                         </div>
                     </div>

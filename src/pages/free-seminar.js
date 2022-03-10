@@ -1,14 +1,22 @@
-import { graphql } from "gatsby"
-import * as React from "react"
+import { graphql, Link } from "gatsby"
+import React,{useState} from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import CourseSlide from "../components/courses/CoursesSlide"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
+import ModalVideo from 'react-modal-video'
 
 export default function FreeSeminar({data}){
-    const courseData = data.allWpCourseCategory.nodes;
 
+    if (typeof window === 'undefined') {
+      global.window = {}
+    }
+    const page = data.allWpPage.nodes[0];
+    const courseData = data.allWpCourseCategory.nodes;
+    const seminarData = data.allWpSeminar.nodes;
+    const [isOpen, setOpen] = useState(false);
+    
     return(
         <React.Fragment>
         <Layout>
@@ -21,115 +29,42 @@ export default function FreeSeminar({data}){
                         </div>
 
                         <div class="facilities_heading ">
-                            <h2>ফ্রি সেমিনার সূচি</h2>
-                            <p>আশ্চর্যের কৃতজ্ঞতা থেকে আমরা আমাদের শিক্ষার্থীদেরকে আমাদের জোব প্লেসমেন্ট সেল (জেপিসি) এর মাধ্যমে স্নেহ করি। শিক্ষার্থীদের ক্যারিয়ার পছন্দের জন্য কাজ করা একটি ক্যারিয়ার প্লেসমেন্ট সেল তার জন্মের পর থেকেই ডিজিটাল বাংলাদেশ গড়ার চ্যালেঞ্জ মোকাবেলায় এগিয়ে চলেছে। শিক্ষার্থীরা আমাদের জব প্লেসমেন্ট সেল দ্বারা আয়োজিত সেমিনারগুলির মাধ্যমে কর্পোরেট বিশ্বের চ্যালেঞ্জগুলি মোকাবেলা করতে সক্ষম হচ্ছে।</p>
+                          <h2 dangerouslySetInnerHTML={{ __html: page.title }} />
+                          <div dangerouslySetInnerHTML={{ __html: page.content }} />
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-            <section id="seminar">
+        <section id="seminar">
             <div class="container seminar seminer_schedule">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="seminar_content">
                             <ul>
+                              {seminarData.length > 0 ? 
+                              seminarData.map(
+                                seminar=>
                                 <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>গ্রাফিক্স ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
+                                  <div class="date">{seminar.seminar_meta.seminarDate.day ? seminar.seminar_meta.seminarDate.day : ''} 
+                                  <span>{seminar.seminar_meta.seminarDate.month ? seminar.seminar_meta.seminarDate.month : ''}, 
+                                  {seminar.seminar_meta.seminarDate.year ? ' '+seminar.seminar_meta.seminarDate.year : ''}</span></div>
+                                  <div class="text_main">
+                                      <div class="text">
+                                        <h4 dangerouslySetInnerHTML={{ __html: seminar.title }} />
+                                        <p>{seminar.seminar_meta.venue ? seminar.seminar_meta.venue : seminar.seminar_meta.venueOthers}, 
+                                        সময়ঃ {seminar.seminar_meta.seminarTime.timeSlot ? seminar.seminar_meta.seminarTime.timeSlot : ''} 
+                                        {seminar.seminar_meta.seminarTime.timeH ? ' '+seminar.seminar_meta.seminarTime.timeH :''}:
+                                        {seminar.seminar_meta.seminarTime.timeS ? seminar.seminar_meta.seminarTime.timeS :'00'} টা</p>
+                                      </div>
+                                      <div class="join_btn">
+                                          <Link href="/register_for_free_seminar">জয়েন</Link>
+                                      </div>
+                                  </div>
                                 </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">২৫ <span>জুন, ২০</span></div>
-                                    <div class="text_main">
-                                        <div class="text">
-                                            <h4>ওয়েব ডিজাইন</h4>
-                                            <p>ক্রিয়েটিভ আইটি হেড অফিস, সময়ঃ বিকাল ৩ টা</p>
-                                        </div>
-                                        <div class="join_btn">
-                                            <a href="#">জয়েন</a>
-                                        </div>
-                                    </div>
-                                </li>
+                              )
+                              : <p>No Seminar Found</p> }
+                                
                             </ul>
                         </div>
                     </div>
@@ -139,15 +74,20 @@ export default function FreeSeminar({data}){
         <section id="previous_seminer_video">
             <div class="container">
                 <div class="prev_semi_video_heading">
-                    <h2>বিগত সেমিনারের ভিডিও</h2>
+                  <h2 dangerouslySetInnerHTML={{ __html: page.latestSeminarVideo.sectionHeading }} />
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner_img">
-                            <StaticImage class="img-fluid w-100" src="../images/prev-video-seminer/prev-video-seminer.png" alt="image" />
+                          {page.latestSeminarVideo.latestSeminarVideoThumb !=null &&
+                            <img class="img-fluid w-100" src={page.latestSeminarVideo.latestSeminarVideoThumb.sourceUrl} alt="Seminar Video" />
+                          }
                             <div class="banner_img_overly">
                                 <div class="overly_icon">
-                                    <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/eBnMWLMGq04"><FontAwesomeIcon icon={faPlay} /></a>
+                                  <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={page.latestSeminarVideo.latestSeminarVideoId} onClose={() => setOpen(false)} />
+                                  <button className="modalvidwrap" onClick={()=> setOpen(true)} >
+                                      <FontAwesomeIcon icon={faPlay} />
+                                  </button>
                                 </div>
                             </div>
                         </div>
@@ -165,6 +105,19 @@ export default function FreeSeminar({data}){
 
 export const query = graphql`
   {
+    allWpPage(filter: {slug: {eq: "free-seminar"}}) {
+      nodes {
+        title
+        content
+        latestSeminarVideo {
+          sectionHeading
+          latestSeminarVideoId
+          latestSeminarVideoThumb {
+            sourceUrl
+          }
+        }
+      }
+    }
     allWpCourseCategory {
       nodes {
         name
@@ -201,5 +154,25 @@ export const query = graphql`
         }
       }
     }
+    allWpSeminar {
+        nodes {
+          title
+          seminar_meta {
+            course
+            venueOthers
+            venue
+            seminarDate {
+              day
+              month
+              year
+            }
+            seminarTime {
+              timeH
+              timeS
+              timeSlot
+            }
+          }
+        }
+      }
   }
 `

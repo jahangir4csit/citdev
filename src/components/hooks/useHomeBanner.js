@@ -22,6 +22,7 @@ export const useHomeBanner = () => {
             homeBannerTitle
             homeButtonOneUrl
             homeButtonTwoUrl
+            videoId
           }
         }
       }

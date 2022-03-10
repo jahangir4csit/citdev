@@ -1,12 +1,11 @@
-import React, { useState } from "react"
-import gql from 'graphql-tag'
+import React, { useState } from "react";
+import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
+import Layout from "../components/layout";
 
-import Layout from "../components/layout"
-
-const CONTACT_MUTATION = gql`
-  mutation CreateSubmissionMutation($clientMutationId: String!, $firstName: String!, $lastName: String!, $favoriteFood: String!, $message: String!){
-    createSubmission(input: {clientMutationId: $clientMutationId, firstName: $firstName, lastName: $lastName, favoriteFood: $favoriteFood, message: $message}) {
+const SEMINAR_MUTATION = gql`
+  mutation CreateSubmissionMutation($clientMutationId: String!, $name: String!, $mobile: String!, $email: String!, $address: String!, $course: String!){
+    createSubmission(input: {clientMutationId: $clientMutationId, name: $name, mobile: $mobile,  email: $email, address: $address, course: $course}) {
       success
       data
     }
@@ -15,15 +14,16 @@ const CONTACT_MUTATION = gql`
 
 const RegSeminar = () => {
 
-  const [firstNameValue, setFirstNameValue] = useState('')
-  const [lastNameValue, setLastNameValue] = useState('')
-  const [favoriteFoodValue, setFavoriteFoodValue] = useState('')
-  const [messageValue, setMessageValue] = useState('')
+  const [nameVal, setNameValue] = useState('')
+  const [mobileVal, setMobileValue] = useState('')
+  const [emailVal, setEmailValue] = useState('')
+  const [addressVal, setAddressValue] = useState('')
+  const [courseVal, setCourseValue] = useState('')
 
   return (
     <Layout>
-      <h1>Contact Form Submission to WordPress with GraphQL</h1>
-      <Mutation mutation={CONTACT_MUTATION}>
+      <h1 style={{ paddingTop: '140px'}}>Join FOR FREE SEMINAR </h1>
+      <Mutation mutation={SEMINAR_MUTATION}>
         {(createSubmission, { loading, error, data }) => (
           <React.Fragment>
           <form
@@ -31,59 +31,68 @@ const RegSeminar = () => {
               event.preventDefault()
               createSubmission({
                 variables: {
-                  clientMutationId: 'example',
-                  firstName: firstNameValue,
-                  lastName: lastNameValue,
-                  favoriteFood: favoriteFoodValue,
-                  message: messageValue
+                  clientMutationId: 'seminarEntry',
+                  name: nameVal,
+                  mobile: mobileVal,
+                  email: emailVal,
+                  address: addressVal,
+                  course: courseVal
                 }
               })
             }}
           >
 
-            <label htmlFor='firstNameInput'>First Name: </label>
-            <input id='firstNameInput' value={firstNameValue}
+            <label htmlFor='nameInput'>Name: </label>
+            <input id='nameInput' value={nameVal}
               onChange={event => {
-                setFirstNameValue(event.target.value)
+                setNameValue(event.target.value)
               }}
             />
 
             <br /><br />
 
-            <label htmlFor='lastNameInput'>Last Name: </label>
-            <input id='lastNameInput' value={lastNameValue}
+            <label htmlFor='mobileInput'>Mobile: </label>
+            <input id='mobileInput' value={mobileVal}
               onChange={event => {
-                setLastNameValue(event.target.value)
+                setMobileValue(event.target.value)
               }}
             />
 
             <br /><br />
 
-            <label htmlFor='favoriteFoodInput'>Favorite Food: </label>
-            <select id='favoriteFoodNameInput' value={favoriteFoodValue}
+            <label htmlFor='emailInput'>Email: </label>
+            <input id='emailInput' value={emailVal}
               onChange={event => {
-                setFavoriteFoodValue(event.target.value)
+                setEmailValue(event.target.value)
               }}
-            >
-              <option>Select one...</option>
-              <option>Ribs</option>
-              <option>Pho</option>
-              <option>Beef Jerky</option>
-            </select>
+            />
 
             <br /><br />
 
-            <label htmlFor='messageInput'>Message: </label>
-            <textarea id='messageInput' value={messageValue}
+            <label htmlFor='addressInput'>Address: </label>
+            <textarea id='addressInput' value={addressVal}
               onChange={event => {
-                setMessageValue(event.target.value)
+                setAddressValue(event.target.value)
               }}
             >
             </textarea>
 
+            <label htmlFor='courseInput'>Select Course: </label>
+            <select id='courseInput' value={courseVal}
+              onChange={event => {
+                setCourseValue(event.target.value)
+              }}
+            >
+              <option>Select one...</option>
+              <option>মোশন গ্রাফিক্স</option>
+              <option>প্রফেশনাল ওয়েব ডেভেলপমেন্ট</option>
+              <option>MERN স্ট্যাক ডেভেলপমেন্ট</option>
+              <option>UX/UI ডিজাইন</option>
+            </select>
+
             <br /><br />
 
-            <button type="submit">Send it!</button>
+            <button type="submit">Submit</button>
 
           </form>
 
@@ -93,7 +102,7 @@ const RegSeminar = () => {
             {error && (
               <p>An unknown error has occured, please try again later...</p>
             )}
-            {data && <p>yeah boi</p>}
+            {data && <p>Thank you</p>}
           </div>
           </React.Fragment>
         )}

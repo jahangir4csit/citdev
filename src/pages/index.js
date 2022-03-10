@@ -22,7 +22,7 @@ export default function HomePage({data}){
 
   const courseData = data.allWpCourseCategory.nodes;
   const homeData = data.allWpPage.nodes[0];
-  console.log(homeData, 'Home Data');
+  const seminarUpcomming = data.allWpSeminar.nodes;
 
   return(
     <Layout>
@@ -59,6 +59,8 @@ export default function HomePage({data}){
       <Seminar 
       secHeading={homeData.homeSeminarSecHeading} 
       secDesc={homeData.homeSeminarSecDesc}
+      secBanner={homeData.homeSeminarSecBanner}
+      upcomming={seminarUpcomming}
       />
       <FeaturedTextOne />
       <FeaturedTextTwo aboutBtn />
@@ -123,6 +125,7 @@ query CourseData
       homeSeminarSecHeading
       homeSeminarSecDesc
       homePartnersSecHeading
+      homeSeminarSecBanner
       homePartnersSecDesc
       homeFavouriteExcludeCats
       homeFavouriteCourseSecHeading
@@ -163,6 +166,26 @@ query CourseData
         cit_partners_item {
           partner_logo
           partner_name
+        }
+      }
+    }
+  }
+  allWpSeminar(limit: 2, sort: {order: DESC, fields: date}) {
+    nodes {
+      title
+      seminar_meta {
+        course
+        venueOthers
+        venue
+        seminarDate {
+          day
+          month
+          year
+        }
+        seminarTime {
+          timeH
+          timeS
+          timeSlot
         }
       }
     }

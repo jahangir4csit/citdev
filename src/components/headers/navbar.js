@@ -16,6 +16,7 @@ import { useMenuQuery } from "./menuQuery"
 const MainNav = ()=>{
 
     const menuItem = useMenuQuery();
+    console.log(menuItem, 'Menu Items');
     
     const [scroll, setScroll] = useState(false);
 
@@ -34,18 +35,12 @@ const MainNav = ()=>{
                     </Navbar.Brand>
                     <Navbar.Collapse>
                         <Nav className="navbar-nav ms-auto mb-2 mb-lg-0 main_menu" as="ul">
-                            <Nav.Item as="li">
-                                <Nav.Link href="/">হোম</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item as="li">
-                                <Nav.Link href="/about-us">আমাদের সম্পর্কে</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item as="li">
-                                <Nav.Link href="/contact-us">যোগাযোগ</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item as="li">
-                                <Nav.Link href="/register_for_free_seminar">Seminar</Nav.Link>
-                            </Nav.Item>
+                            {menuItem.map(
+                                menu=>                         
+                                <Nav.Item as="li">
+                                    <Nav.Link href={menu.url}>{menu.label}</Nav.Link>
+                                </Nav.Item>
+                            )}
                             <Nav.Item class="navbar_btn">
                                 <Link to="/our-courses"><img src={BookButton} alt="icon" /><span style={{ marginRight: '0.5rem' }} >ব্রাউজ কোর্স </span><FontAwesomeIcon icon={faAngleDown} /></Link>
                             </Nav.Item>
@@ -70,15 +65,12 @@ const MainNav = ()=>{
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="justify-content-center flex-column text-center ms-auto mb-2 mb-lg-0 main_menu" as="ul">
-                                <Nav.Item as="li">
-                                    <Nav.Link href="/home">হোম</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item as="li">
-                                    <Nav.Link href="/about-us">আমাদের সম্পর্কে</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item as="li">
-                                    <Nav.Link href="/about-us">যোগাযোগ</Nav.Link>
-                                </Nav.Item>
+                                {menuItem.map(
+                                    menu=>                         
+                                    <Nav.Item as="li">
+                                        <Nav.Link href={menu.url}>{menu.label}</Nav.Link>
+                                    </Nav.Item>
+                                )}
                                 <Nav.Item class="navbar_btn text-center">
                                     <Link to="/our-courses"><img src={BookButton} alt="icon" />ব্রাউজ কোর্স <i class="fa fa-angle-down ps-2"></i></Link>
                                 </Nav.Item>

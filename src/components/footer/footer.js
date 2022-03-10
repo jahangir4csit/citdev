@@ -4,8 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby'
 import React from "react"
+import { useFooterMenuQuery } from "../hooks/useMenuFooter"
+import { useFooterData } from "../hooks/useFooterData"
 
 const Footer = ()=>{
+
+    const footerNavs = useFooterMenuQuery();
+    const footerData = useFooterData();
+    console.log(footerData, 'footer Data');
+
     return(
         <footer>
             <section id="footer">
@@ -15,12 +22,15 @@ const Footer = ()=>{
                     <div class="row">
                         <div class="col-12">
                             <div class="footer_heading">
-                                <h2>তাই আর অপেক্ষা কেনো?</h2>
-                                <p>এই কোর্সে দুটি পদ্ধতিতে ক্লাস হবে, অফলাইন (সরাসরি ইনিষ্টিটিউটে ), অনলাইন (লাইভ ক্লাস) তুমি যে
-                                    কোন একটি পদ্ধতিতে ভর্তি হতে পারো </p>
+                                <h2 dangerouslySetInnerHTML={{ __html: footerData.crbThemeOptions.citFtHeading ? footerData.crbThemeOptions.citFtHeading : '' }} />
+                                <p dangerouslySetInnerHTML={{ __html: footerData.crbThemeOptions.citFtDesc ? footerData.crbThemeOptions.citFtDesc : '' }} />
                                 <div class="footer_btn">
-                                    <Link to="/free-seminar">জয়েন ফ্রি সেমিনার</Link>
-                                    <Link to="/our-courses">ব্রাউজ কোর্স</Link>
+                                    {footerData.crbThemeOptions.citFtButton1Title &&
+                                    <Link to={footerData.crbThemeOptions.citFtButton1Url} >{footerData.crbThemeOptions.citFtButton1Title}</Link>
+                                    }
+                                    {footerData.crbThemeOptions.citFtButton2Title &&
+                                    <Link to={footerData.crbThemeOptions.citFtButton2Url} >{footerData.crbThemeOptions.citFtButton2Title}</Link>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -29,81 +39,75 @@ const Footer = ()=>{
                             <div class=" footer_item_1">
                                 <h5>যোগাযোগ</h5>
                                 <ul>
+                                    {footerData.crbThemeOptions.citFtAddress &&
                                     <li>
                                         <div class="footer_icon">
                                             <FontAwesomeIcon icon={faMapMarkerAlt} />
                                         </div>
-                                        <div class="footer_text">
-                                            <span>হেড অফিস :</span>
-                                            <span>মমতাজ প্লাজা (৪র্থ তালা)</span>
-                                            <span>বাড়ি # ০৭, রোড # ০৪</span>
-                                            <span>ধানমন্ডি,ঢাকা-১২০৫</span>
-                                        </div>
+                                        <div class="footer_text" dangerouslySetInnerHTML={{ __html: footerData.crbThemeOptions.citFtAddress }} />
                                     </li>
+                                    }
+                                    {footerData.crbThemeOptions.citFtContactPhone &&
                                     <li>
                                         <div class="footer_icon">
                                             <FontAwesomeIcon icon={faPhoneAlt} />
                                         </div>
-                                        <div class="footer_text">
-                                            <span><Link to="tel:+৮৮০ ১৬২৪৬৬৬০০০">+৮৮০ ১৬২৪৬৬৬০০০</Link></span>
-                                            <span><Link to="tel:+৮৮০ ১৬২৪৮৮৮৪৪৪">+৮৮০ ১৬২৪৮৮৮৪৪৪</Link></span>
-                                            <span><Link to="tel:+৮৮০ ১৯৬৬১৭৭১৭৭">+৮৮০ ১৯৬৬১৭৭১৭৭</Link></span>
-                                        </div>
+                                        <div class="footer_text" 
+                                        dangerouslySetInnerHTML={{ __html: footerData.crbThemeOptions.citFtContactPhone }} 
+                                        />
                                     </li>
+                                    }
+                                    {footerData.crbThemeOptions.citFtContactEmail &&
                                     <li>
                                         <div class="footer_icon">
                                             <FontAwesomeIcon icon={faEnvelopeOpen} />
                                         </div>
                                         <div class="footer_text">
-                                            <span><a href="mailto:info@creativeitinstitute.com">info@creativeitinstitute.com</a></span>
+                                            <span><a href={'mailto:'+footerData.crbThemeOptions.citFtContactEmail} >{footerData.crbThemeOptions.citFtContactEmail}</a></span>
                                         </div>
                                     </li>
+                                    }
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer_item footer_item_2">
-                                <h5>কুইক লিংক</h5>
-                                <ul>
-                                    <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>
-                                    <li><Link to="#">গ্যালারি</Link></li>
-                                    <li><Link to="/instructors-teachers">ইন্সট্রাক্টর ও শিক্ষকবৃন্দ</Link></li>
-                                    <li><Link to="#">ফিডবেক</Link></li>
-                                    <li><Link to="/success-story">ফ্রিল্যান্সিং সাকসেক</Link></li>
-                                    <li><Link to="/contact-us">যোগাযোগ</Link></li>
-                                </ul>
+                        {footerNavs[0] &&
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer_item footer_item_2">
+                                    <h5>{ footerNavs[0].name }</h5>
+                                    <ul>
+                                        {footerNavs[0].menuItems.nodes.map(
+                                            navItems=> <li><Link to={navItems.url}>{navItems.label}</Link></li>
+                                        )}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer_item footer_item_2">
-                                <h5>কোর্স</h5>
-                                <ul>
-                                    <li><Link to="#">গ্রাফিক্স ডিজাইন</Link></li>
-                                    <li><Link to="#">মোশন গ্রাফিক্স</Link></li>
-                                    <li><Link to="#">ইন্টেরিয়র ডিজাইন</Link></li>
-                                    <li><Link to="#">অ্যাপ ডেভেলপমেন্ট</Link></li>
-                                    <li><Link to="#">থ্রিডি এ্যানিমেশন</Link></li>
-                                    <li><Link to="#">ডিজিটাল মার্কেটিং</Link></li>
-                                </ul>
-
+                        }
+                        {footerNavs[1] &&
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer_item footer_item_2">
+                                    <h5>{ footerNavs[1].name }</h5>
+                                    <ul>
+                                        {footerNavs[1].menuItems.nodes.map(
+                                            navItems=> <li><Link to={navItems.url}>{navItems.label}</Link></li>
+                                        )}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6">
-                            <div class="footer_item footer_item_2">
-                                <h5>কুইক লিংক</h5>
-                                <ul>
-                                    <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>
-                                    <li><Link to="#">গ্যালারি</Link></li>
-                                    <li><Link to="#">জব প্লেসমেন্ট</Link></li>
-                                    <li><Link to="#">ফিডবেক</Link></li>
-                                    <li><Link to="/success-story">ফ্রিল্যান্সিং সাকসেক</Link></li>
-                                    <li><Link to="/contact-us">যোগাযোগ</Link></li>
-                                </ul>
+                        }
+                        {footerNavs[2] &&
+                            <div class="col-md-2 col-sm-6">
+                                <div class="footer_item footer_item_2">
+                                    <h5>{ footerNavs[2].name }</h5>
+                                    <ul>
+                                        {footerNavs[2].menuItems.nodes.map(
+                                            navItems=> <li><Link to={navItems.url}>{navItems.label}</Link></li>
+                                        )}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+                        }
+
                         <div class="col-12">
                             <div class="row copy">
                                 <div class="col-md-4 col-sm-6 padding_0">
@@ -113,14 +117,20 @@ const Footer = ()=>{
                                 </div>
                                 <div class="col-md-4 copy_text_sm_last">
                                     <div class="copy_text">
-                                        <p>Copyright &copy; 2021 Creative IT Institute. </p>
+                                        <p dangerouslySetInnerHTML={{ __html: footerData.crbThemeOptions.citCopyrightText ? 'Copyright &copy; '+ footerData.crbThemeOptions.citCopyrightText : 'Creative IT Institute' }} />
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <div class="copy_social_link">
-                                        <Link to="#"><FontAwesomeIcon icon={faFacebookF} /></Link>
-                                        <Link to="#"><FontAwesomeIcon icon={faLinkedinIn} /></Link>
-                                        <Link to="#"><FontAwesomeIcon icon={faTwitter} /></Link>
+                                        {footerData.crbThemeOptions.citSmediaFb &&
+                                            <Link to={footerData.crbThemeOptions.citSmediaFb}><FontAwesomeIcon icon={faFacebookF} /></Link>
+                                        }
+                                        {footerData.crbThemeOptions.citSmediaIn &&
+                                            <Link to={footerData.crbThemeOptions.citSmediaIn}><FontAwesomeIcon icon={faLinkedinIn} /></Link>
+                                        }
+                                        {footerData.crbThemeOptions.citSmediaTweet &&
+                                            <Link to={footerData.crbThemeOptions.citSmediaTweet}><FontAwesomeIcon icon={faTwitter} /></Link>
+                                        }
                                     </div>
                                 </div>
                             </div>

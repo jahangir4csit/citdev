@@ -22,7 +22,9 @@ const page = data.allWpPage.nodes[0];
         secheading={page.admissionSecHeading} 
         secdesc={page.admissionSecDesc} 
         />
-        <StudentFeedback />
+        <StudentFeedback
+        secHeading="মন্তব্য" 
+        secDesc="আমরা বিশ্বাস করি আমাদের প্রতিটি শিক্ষার্থী ক্রিয়েটিভ আইটি পরিবারের সদস্য। তাই শিক্ষার্থীদের যেকোনো গঠনমূলক মন্তব্য আমাদের ভুল-ত্রুটি শুধরে সামনে এগিয়ে চলার পথে প্রেরণা যোগায়।" />
     </Layout>
     )
 

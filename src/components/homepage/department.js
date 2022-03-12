@@ -1,6 +1,7 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from "react";
+import { Link } from "gatsby"
 import Slider from "react-slick";
 
 
@@ -80,7 +81,7 @@ export default function  DepartmentSlider(data){
                         item=>(
                             <div>
                                 <div class="course_slider_item">
-                                    <a href={item.link}>
+                                    <Link to={`course-cat/`+item.slug}>
                                         <div class="couse_icon">
                                             <img src={item.categoryThumb.categoryThumbnail.sourceUrl ? item.categoryThumb.categoryThumbnail.sourceUrl : ''} 
                                             alt={item.name} />
@@ -88,7 +89,7 @@ export default function  DepartmentSlider(data){
                                         <div class="couse_text">
                                             <h3>{item.name}</h3>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         )

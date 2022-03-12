@@ -16,8 +16,7 @@ import { useMenuQuery } from "./menuQuery"
 const MainNav = ()=>{
 
     const menuItem = useMenuQuery();
-    console.log(menuItem, 'Menu Items');
-    
+
     const [scroll, setScroll] = useState(false);
 
     useEffect(() => {
@@ -38,7 +37,7 @@ const MainNav = ()=>{
                             {menuItem.map(
                                 menu=>                         
                                 <Nav.Item as="li">
-                                    <Nav.Link href={menu.url}>{menu.label}</Nav.Link>
+                                    <Nav.Link to={menu.url}>{menu.label}</Nav.Link>
                                 </Nav.Item>
                             )}
                             <Nav.Item class="navbar_btn">
@@ -68,7 +67,7 @@ const MainNav = ()=>{
                                 {menuItem.map(
                                     menu=>                         
                                     <Nav.Item as="li">
-                                        <Nav.Link href={menu.url}>{menu.label}</Nav.Link>
+                                        <Nav.Link to={menu.url}>{menu.label}</Nav.Link>
                                     </Nav.Item>
                                 )}
                                 <Nav.Item class="navbar_btn text-center">
@@ -81,7 +80,6 @@ const MainNav = ()=>{
                 </Container>
             </Navbar>
             <ScrollTop data={scroll} />
-            <ScrollTop />
         </Fragment>
     )
 }

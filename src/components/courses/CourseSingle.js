@@ -14,7 +14,9 @@ export default function CourseSingle(data){
                 : '' }
                 </div>
                 <div class="course_text">
+                    {!data.archive &&
                     <h6>{courseItem.courseCategories.nodes[0].name}</h6>
+                    }
                     <a href={`/courses/${courseItem.slug}`}>{courseItem.title}</a>
                     <ul>
                         <li>

@@ -1,6 +1,6 @@
-import React,{Fragment, useState} from 'react'
+import React,{Fragment, useEffect, useState} from 'react'
 import Slider from "react-slick";
-import { graphql } from "gatsby"; 
+import { graphql, Link } from "gatsby"; 
 import { StaticImage } from "gatsby-plugin-image"
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,6 +29,14 @@ export default function SingleCourse({data}){
     console.log(post, 'Single Course')
 
     const [isOpen, setOpen] = useState(false);
+
+    const [scroll, setScroll] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+          setScroll(window.scrollY > 850);
+        });
+      }, []);
 
     const settingsProjectsSlider = {
       className: "pgp_slider",
@@ -70,8 +78,8 @@ export default function SingleCourse({data}){
                             <div className='course_desc_article' dangerouslySetInnerHTML={{ __html: post.content }} />
                             }
                             <div class="pg_banner_btn">
-                                <a href="desktop-50.html">ভর্তি</a>
-                                <a href="free-seminer-schedule.html">ফ্রি সেমিনার</a>
+                                <Link href="#">ভর্তি</Link>
+                                <Link to="/free-seminar">ফ্রি সেমিনার</Link>
                             </div>
                             <div class="stars">
                                 <p>
@@ -390,30 +398,32 @@ export default function SingleCourse({data}){
 
                     </div>
 
-                    <div class="col-lg-5 d-none d-sm-block">
+                    <div id="sidebar" class="col-lg-5 d-none d-sm-block">
                         <SuccessStorySlider sdata={post.courseSuccessCase.successCaseLink} />
 
-                        <div class="pg_wait">
-                            <h3>ভর্তি চলছে!</h3>
-                            <p>অফলাইন (সরাসরি ইন্সটিটিউটে) বা অনলাইন (লাইভ ক্লাস)- যে কোন ব্যাচে সুবিধামতো সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই। </p>
-                            <div class="join_offline_main">
-                                {post.course_options.courseFee !=null ?
-                                <div class="join_offline">
-                                    <h4>অফলাইন ব্যাচ</h4>
-                                    <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
-                                    <a href="#">ভর্তি</a>
+                        <div className={'pg_wait_wrap ' + (scroll ? "nav_sticky" : "")}>
+                            <div className="pg_wait">
+                                <h3>ভর্তি চলছে!</h3>
+                                <p>অফলাইন (সরাসরি ইন্সটিটিউটে) বা অনলাইন (লাইভ ক্লাস)- যে কোন ব্যাচে সুবিধামতো সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই। </p>
+                                <div class="join_offline_main">
+                                    {post.course_options.courseFee !=null ?
+                                    <div class="join_offline">
+                                        <h4>অফলাইন ব্যাচ</h4>
+                                        <p>৳ {post.course_options.courseFee} টাকা মাত্র</p>
+                                        <a href="#">ভর্তি</a>
+                                    </div>
+                                    : ''}
+                                    {post.course_options.courseFeeOnline !=null ?
+                                    <div class="join_offline">
+                                        <h4>অনলাইন ব্যাচ</h4>
+                                        <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
+                                        <a href="#">ভর্তি</a>
+                                    </div>
+                                    : ''}
                                 </div>
-                                : ''}
-                                {post.course_options.courseFeeOnline !=null ?
-                                <div class="join_offline">
-                                    <h4>অনলাইন ব্যাচ</h4>
-                                    <p>৳ {post.course_options.courseFeeOnline} টাকা মাত্র</p>
-                                    <a href="#">ভর্তি</a>
+                                <div class="wait_btn text-center">
+                                    <Link to="/free-seminar">ফ্রি সেমিনার</Link>
                                 </div>
-                                : ''}
-                            </div>
-                            <div class="wait_btn text-center">
-                                <a href="#">ফ্রি সেমিনার</a>
                             </div>
                         </div>
                     </div>

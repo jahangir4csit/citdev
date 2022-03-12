@@ -3332,7 +3332,16 @@ Course-Landing right side bar Position Stiky  Area Start
 .pg_succsess_img_slider .slick-dots li.slick-active {
   background: #FF1E1E;
 }
-
+#sidebar .nav_sticky {
+  position: fixed;
+    top: 100px;
+    -webkit-animation: sticky .5s linear;
+    animation: sticky .5s linear;
+    transition: all linear .3s;
+}
+.pg_wait_wrap{
+  max-width: 526px;
+}
 .pg_wait {
   margin-top: 29px;
   background: #FBF2F2;

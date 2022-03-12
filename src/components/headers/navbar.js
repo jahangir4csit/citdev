@@ -37,7 +37,7 @@ const MainNav = ()=>{
                             {menuItem.map(
                                 menu=>                         
                                 <Nav.Item as="li">
-                                    <Nav.Link to={menu.url}>{menu.label}</Nav.Link>
+                                    <Nav.Link href={menu.url}>{menu.label}</Nav.Link>
                                 </Nav.Item>
                             )}
                             <Nav.Item class="navbar_btn">
@@ -67,7 +67,7 @@ const MainNav = ()=>{
                                 {menuItem.map(
                                     menu=>                         
                                     <Nav.Item as="li">
-                                        <Nav.Link to={menu.url}>{menu.label}</Nav.Link>
+                                        <Nav.Link href={menu.url}>{menu.label}</Nav.Link>
                                     </Nav.Item>
                                 )}
                                 <Nav.Item class="navbar_btn text-center">

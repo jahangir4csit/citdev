@@ -71,8 +71,8 @@ export default function SingleCourse({data}){
                             <h1>{post.title ? post.title : ''}<span class="d-block d-sm-none">স্কিল এর সাথে</span></h1>
                             <ul>
                                 <li>কোর্সের মেয়াদ<span>{post.course_options.courseDuration !=null ? post.course_options.courseDuration : ''}</span></li>
-                                <li>লেকচার<span>{post.course_options.totalLecture !=null ? post.course_options.totalLecture : ''}টি</span></li>
-                                <li>প্রজেক্ট<span>{post.course_options.classPerWeek !=null ? post.course_options.classPerWeek : ''}টি</span></li>
+                                <li>লেকচার<span>{post.course_options.totalLecture !=null ? post.course_options.totalLecture : ''}</span></li>
+                                <li>প্রজেক্ট<span>{post.course_options.classPerWeek !=null ? post.course_options.classPerWeek : ''}</span></li>
                             </ul>
                             {post.content !=null &&
                             <div className='course_desc_article' dangerouslySetInnerHTML={{ __html: post.content }} />

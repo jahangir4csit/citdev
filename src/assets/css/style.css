@@ -4093,7 +4093,7 @@ Our facilities_item Area End
   text-align: right;
 }
 
-.course_free_facilities_btn a {
+.course_free_facilities_btn a,.btn-formSend {
   font-family: Hind Siliguri;
   color: #fff;
   background: linear-gradient(214.38deg, #FF8079 -2.24%, #FF1E1E 59.38%);
@@ -4110,6 +4110,9 @@ Our facilities_item Area End
   font-weight: 600;
   line-height: 32px;
   letter-spacing: 0.20000000298023224px;
+}
+.btn-formSend{
+  border: none;
 }
 
 /* =================================

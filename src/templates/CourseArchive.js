@@ -25,7 +25,6 @@ export default function Courses(data){
     const courses = data.data.allWpCourse.nodes;
     const secheading = data.pageContext.name;
 
-    console.log(data, 'archive data');
     return(
         <Layout>
             <Seo title="Our Courses" />

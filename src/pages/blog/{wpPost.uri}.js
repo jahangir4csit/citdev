@@ -14,7 +14,7 @@ const BlogTemplate = ({data}) => {
             <section class="blog_news">
                 <div class="container">
                     <div class="navbar_btn text-center d-md-none">
-                        <a href="our-courses.html"><img src="images/home/Button-book.png" alt="icon" />ব্রাউজ কোর্স <i class="fa fa-angle-down ps-2"></i></a>
+                        <a href="/our-courses"><img src="images/home/Button-book.png" alt="icon" />ব্রাউজ কোর্স <i class="fa fa-angle-down ps-2"></i></a>
                     </div>
                     <div class="blog_menu">
                         <ul>

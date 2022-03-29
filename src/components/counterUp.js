@@ -12,7 +12,7 @@ const CounterUp = ()=>{
                 <div class="row">
                     <div class="col-lg-2 col-md-4 col-6">
                         <div class="counter_up_item">
-                            <h5 class="counter"><Counter data="45000" /> </h5>
+                            <h5 class="counter"><Counter data="50000" /> </h5>
                             <p>সফল শিক্ষার্থী</p>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ const CounterUp = ()=>{
                     </div>
                     <div class="col-lg-2 col-md-4 col-6">
                         <div class="counter_up_item">
-                            <h5><span class="counter"><Counter data="92" /></span>%</h5>
+                            <h5><span class="counter"><Counter data="87" /></span>%</h5>
                             <p>সাককসেস রেশিও </p>
                         </div>
                     </div>

@@ -24,8 +24,6 @@ export default function AboutUs({data}) {
   const photoWall = pageData.citPhotoWall;
   const statementData = pageData.statementsData;
 
-  console.log(pageData, 'page data');
-
   return(
     <Layout>
       <Seo title={pageData.title} />

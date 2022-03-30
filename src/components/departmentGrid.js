@@ -2,6 +2,7 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { isEmpty } from "lodash";
 import { StaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 
 export default function DepartmentGrid(data){
@@ -59,7 +60,7 @@ export default function DepartmentGrid(data){
                             {catData.allWpCourseCategory.nodes.map(
                                  item=>(
 
-                            <a href="#" style={boxShadow ? styles.boxStyle.a : styles.boxStyle.none}>
+                            <Link to={`https://preview-cit.gtsb.io/course-cat/`+item.slug} style={boxShadow ? styles.boxStyle.a : styles.boxStyle.none}>
                                 <div className="training_department_item" style={boxShadow ? styles.boxStyle.shadow : styles.boxStyle.none}>
                                     <div class="couse_icon">
                                         <img src={item.categoryThumb.categoryThumbnail.sourceUrl ? item.categoryThumb.categoryThumbnail.sourceUrl : ''} 
@@ -69,7 +70,7 @@ export default function DepartmentGrid(data){
                                         <h3>{item.name}</h3>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
 
                             )
 

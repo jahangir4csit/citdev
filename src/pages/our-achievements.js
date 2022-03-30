@@ -4,7 +4,7 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import PageDesc from '../components/pageDesc'
 import FeaturedTextTwo from "../components/featuredTextTwo"
-import CounterUp from "../components/counterUp"
+import CounterUp2 from "../components/counterUp2"
 
 
 export default function OurAchievements({data}) {
@@ -16,7 +16,7 @@ export default function OurAchievements({data}) {
             <Seo title={pageData.title} />
             <PageDesc data={pageData} />
             <FeaturedTextTwo />
-            <CounterUp />
+            <CounterUp2 />
         </Layout>
         )
 }

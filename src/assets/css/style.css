@@ -930,6 +930,7 @@ div.success_menu ul.common_slider_class li {
   font-weight: 400;
   line-height: 17px;
   margin-bottom: 25px;
+  font-family: 'Hind Siliguri';
 }
 
 .course_single_item .course_text ul li svg {
@@ -2018,6 +2019,7 @@ del {
 /* =================================
     Counter Up Area Satrt
 =================================== */
+
 .counter_up_item {
   background: #FAF9FD;
   border-radius: 15px;
@@ -2043,6 +2045,11 @@ del {
   font-weight: bold;
   font-size: 13px;
   line-height: 21px;
+}
+.counter_up_style2{
+  margin-bottom: 25px;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 /* =================================

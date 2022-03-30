@@ -9,6 +9,9 @@ export const useStatCountUp = () => {
           citAchvData {
             achv_val
             achv_title
+            achv_ntype {
+              label
+            }
           }
         }
       }

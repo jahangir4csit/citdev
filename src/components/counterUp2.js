@@ -6,7 +6,7 @@ import Counter from "./utils/counter";
 import { useStatCountUp } from "./hooks/useCounterup";
 
 
-const CounterUp = ()=>{
+const CounterUp2 = ()=>{
 
     const statsData = useStatCountUp();
     const stats = statsData.allWpSection.nodes[0];
@@ -18,8 +18,8 @@ const CounterUp = ()=>{
                     {
                         stats.citAchvData.map(
                             statsItem=>(
-                                <div class="col-lg-2 col-md-4 col-6">
-                                    <div class="counter_up_item">
+                                <div class="col-lg-4 col-md-4 col-6">
+                                    <div class="counter_up_item counter_up_style2">
                                         <h5 class="counter"><Counter data={statsItem.achv_val} />{statsItem.achv_ntype.label}</h5>
                                         <p>{statsItem.achv_title}</p>
                                     </div>
@@ -33,6 +33,6 @@ const CounterUp = ()=>{
         </section>
     )
 }
-export default CounterUp
+export default CounterUp2
 
 

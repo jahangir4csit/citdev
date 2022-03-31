@@ -31,9 +31,9 @@ export default function CourseSingle(data){
                         </li>
                     </ul>
                     <p>
-                        কোর্স ফি {courseItem.course_options.discountFee !== null ? courseItem.course_options.discountFee : courseItem.course_options.courseFee} ৳
-                        {courseItem.course_options.discountFee !== null ?
-                        <del> {courseItem.course_options.courseFee} ৳</del> : '' }
+                        কোর্স ফি {courseItem.course_options.discountFee != null ? courseItem.course_options.discountFee : courseItem.course_options.courseFee}৳
+                        {courseItem.course_options.discountFee != null ?
+                        <del> {courseItem.course_options.courseFee}৳</del> : '' }
                     </p>
                 </div>
             </div>

@@ -65,8 +65,9 @@ export default function InstructorHead(data){
                         </div>
                     </div>
                 </div>
-
+                {head.instructorsWorkplace.mentorWorkplace.length > 0 || head.mentorAchievements.length > 0 ?
                 <div class="row instructor_qualification instructor_marketplace">
+                    {head.instructorsWorkplace.mentorWorkplace.length > 0 && head.instructorsWorkplace.mentorWorkplace[0].title !== 'Empty'?
                     <div class="col-lg-6 col-md-6">
                         <div class="instructor_profile_inner_item">
                             <h4>ওয়ার্কপ্লেস</h4>
@@ -81,6 +82,8 @@ export default function InstructorHead(data){
                             </div>
                         </div>
                     </div>
+                    : ''}
+                    {head.mentorAchievements.length > 0 &&
                     <div class="col-lg-6 col-md-6">
                         <div class="instructor_profile_inner_item">
                             <h4>এওয়ার্ড এন্ড এচিভমেন্ট</h4>
@@ -93,7 +96,9 @@ export default function InstructorHead(data){
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
+                : ''}
 
                 <div class="row experiance">
                     <div class="col-lg-6 col-8">

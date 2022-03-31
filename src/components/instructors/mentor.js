@@ -59,6 +59,7 @@ export default function Mentor(data){
                             </ol>
                         </div>
                     </div>
+                    {mentordata.instructorsWorkplace.mentorWorkplace.length > 0 && mentordata.instructorsWorkplace.mentorWorkplace[0].title !== 'Empty'?
                     <div class="col-lg-6 col-sm-6">
                         <div class="instructor_profile_inner_item">
                             <h4>ওয়ার্কপ্লেস</h4>
@@ -73,6 +74,7 @@ export default function Mentor(data){
                             </div>
                         </div>
                     </div>
+                    : ''}
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-8">

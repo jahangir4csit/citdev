@@ -2084,7 +2084,7 @@ del {
 }
 
 .company_menu {
-  padding-bottom: 72px;
+  padding-bottom: 43px;
 }
 
 .company_menu .nav-tabs {
@@ -2153,12 +2153,21 @@ del {
 .company_item_wrap{
   padding-bottom: 50px;
 }
-.company_item ul li {
-  display: inline-flex;
-  width: 20%;
+.company_item ul{
   text-align: center;
   justify-content: center;
-  margin-bottom: 60px;
+  text-align: center;
+}
+.company_item ul li {
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  width: 20%;
+  margin: 30px;
+}
+.company_item ul li img{
+  max-width: 170px;
+  height: auto;
 }
 
 .company_item.active {

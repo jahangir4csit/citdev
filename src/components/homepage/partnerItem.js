@@ -7,7 +7,7 @@ const PartnerItem = (data)=>{
             {data.partnersinfo.map(
                 item=>(
                     <li>
-                        <span><img class="img-fluid" src={item.partner_logo} alt={item.partner_name ? item.partner_name : 'CIT Partner'} /></span>
+                        <img class="img-fluid" src={item.partner_logo} alt={item.partner_name ? item.partner_name : 'CIT Partner'} />
                     </li>
                 )
             )}

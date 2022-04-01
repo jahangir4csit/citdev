@@ -2154,23 +2154,10 @@ del {
   padding-bottom: 50px;
 }
 .company_item ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.company_item ul li span {
+  display: inline-flex;
   width: 20%;
-  display: block;
   text-align: center;
+  justify-content: center;
   margin-bottom: 60px;
 }
 

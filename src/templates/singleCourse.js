@@ -90,7 +90,7 @@ export default function SingleCourse({data}){
                                         <FontAwesomeIcon icon={faStar} />
                                         <FontAwesomeIcon icon={faStar} />
                                         <FontAwesomeIcon icon={faStarHalfAlt} />
-                                    {post.course_options.reviewsCount } Reviews 
+                                    {post.course_options.reviewsCount } রিভিউস 
                                     </Fragment>}
                                     {post.course_options.studentsIn &&
                                     <span>{post.course_options.studentsIn} স্টুডেন্ট</span>}

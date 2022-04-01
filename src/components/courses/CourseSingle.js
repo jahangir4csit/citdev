@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function CourseSingle(data){
     const courseItem = data.singleItem;
+    console.log(courseItem, 'course item data');
     return(
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="course_single_item admission_item">

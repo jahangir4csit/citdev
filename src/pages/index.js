@@ -112,6 +112,7 @@ query CourseData
             courseFee
             discountFee
             studentsIn
+            reviewsCount
           }
 
         }

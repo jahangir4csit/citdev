@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { graphql } from "gatsby"
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import Layout from "../components/layout";
@@ -15,7 +16,9 @@ const SEMINAR_MUTATION = gql`
   }
 `
 
-const RegSeminar = () => {
+const RegSeminar = ({data}) => {
+
+  const courseTitles = data.allWpCourse.nodes;
 
   const [nameVal, setNameValue] = useState('')
   const [mobileVal, setMobileValue] = useState('')
@@ -30,7 +33,7 @@ const RegSeminar = () => {
             <div class="row">
                 <div class="col-xl-8 col-lg-12 m-auto">
                     <div class="section_heading mb-5">
-                        <h2>JOIN FOR FREE SEMINAR</h2>
+                        <h2>জয়েন ফ্রি সেমিনার</h2>
                     </div>
                     <Mutation mutation={SEMINAR_MUTATION}>
                     {(createSubmission, { loading, error, data }) => (
@@ -53,13 +56,13 @@ const RegSeminar = () => {
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <FloatingLabel
                           controlId="floatingInput"
-                          label="Your Name"
+                          label="আপনার নাম"
                           className="mb-3"
                         >
                           <Form.Control 
                           size="lg" 
                           type="text" 
-                          placeholder="Name" 
+                          placeholder="নাম" 
                           value={nameVal}
                           onChange={event => {
                             setNameValue(event.target.value)
@@ -68,13 +71,13 @@ const RegSeminar = () => {
                         </FloatingLabel>
                         <FloatingLabel
                           controlId="floatingInput"
-                          label="Your Mobile Number"
+                          label="আপনার ফোন নাম্বার"
                           className="mb-3"
                         >
                           <Form.Control 
                           size="lg" 
                           type="text" 
-                          placeholder="Mobile" 
+                          placeholder="ফোন নাম্বার" 
                           value={mobileVal}
                           onChange={event => {
                             setMobileValue(event.target.value)
@@ -83,13 +86,13 @@ const RegSeminar = () => {
                         </FloatingLabel>
                         <FloatingLabel
                           controlId="floatingInput"
-                          label="Your Email"
+                          label="আপনার ইমেইল"
                           className="mb-3"
                         >
                           <Form.Control 
                           size="lg" 
                           type="email" 
-                          placeholder="Email"
+                          placeholder="ইমেইল"
                           value={emailVal}
                           onChange={event => {
                             setEmailValue(event.target.value)
@@ -99,7 +102,7 @@ const RegSeminar = () => {
 
                         <FloatingLabel 
                         controlId="floatingSelect" 
-                        label="Select Course"
+                        label="কোর্স সিলেক্ট করুন"
                         className="mb-3"
                         >
                           <Form.Select 
@@ -109,17 +112,18 @@ const RegSeminar = () => {
                             setCourseValue(event.target.value)
                           }}
                           >
-                        <option>মোশন গ্রাফিক্স</option>
-                        <option>প্রফেশনাল ওয়েব ডেভেলপমেন্ট</option>
-                        <option>MERN স্ট্যাক ডেভেলপমেন্ট</option>
-                        <option>UX/UI ডিজাইন</option>
+                        {courseTitles.map(
+                          courseTitle=>(
+                            <option>{courseTitle.title}</option>
+                          )
+                        )}
                           </Form.Select>
                         </FloatingLabel>
                         
-                        <FloatingLabel controlId="floatingTextarea2" label="Address">
+                        <FloatingLabel controlId="floatingTextarea2" label="আপনার ঠিকানা">
                           <Form.Control
                             as="textarea"
-                            placeholder="Your Address"
+                            placeholder="ঠিকানা"
                             style={{ height: '100px' }}
                             value={addressVal}
                             onChange={event => {
@@ -130,7 +134,7 @@ const RegSeminar = () => {
 
                       </Form.Group>
                       <Button className="btn-formSend" variant="primary" type="submit">
-                        Submit
+                        সাবমিট 
                       </Button>
                     </Form>
                     <div style={{ padding: '20px' }}>
@@ -138,7 +142,7 @@ const RegSeminar = () => {
                       {error && (
                         <p>An unknown error has occured, please try again later...</p>
                       )}
-                      {data && <p>Thank you</p>}
+                      {data && <p>ধন্যবাদ, শীঘ্রই আপনার সাথে যোগাযোগ করা হবে </p>}
                     </div>
                     </React.Fragment>
                     )}
@@ -154,3 +158,13 @@ const RegSeminar = () => {
 }
 
 export default RegSeminar;
+
+export const query = graphql`
+  query CourseTitle {
+    allWpCourse{
+      nodes {
+        title
+      }
+    }
+  }
+`

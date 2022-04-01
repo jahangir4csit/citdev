@@ -11,6 +11,7 @@ export default function ContactUs({data}){
 
   const pageData = data.allWpPage.nodes[0];
   const branches = pageData.contactInfo;
+  const courseList = data.allWpCourse.nodes;
 
   console.log(branches, 'Braches');
   return(
@@ -22,7 +23,7 @@ export default function ContactUs({data}){
           <ContactOne data={branch} />
         )
       )}
-      <ContactForm />
+      <ContactForm courseList={courseList} />
   </Layout>
   )
 }
@@ -42,6 +43,11 @@ export const query = graphql`
           branch_schedule
           branch_title
         }
+      }
+    }
+    allWpCourse {
+      nodes {
+        title
       }
     }
   }

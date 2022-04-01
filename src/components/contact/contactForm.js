@@ -1,6 +1,9 @@
-import React from "react";
+import React from "react"
 
-const ContactForm = ()=>{
+const ContactForm = (data)=>{
+
+    const courseTitleLists = data.courseList;
+
     return(
         <section id="question">
             <div class="container">
@@ -23,8 +26,11 @@ const ContactForm = ()=>{
                             <div class="col-md-12 mb-3 form-floating">
                                 <select class="form-select" id="course_select" aria-label="Floating label select example">
                                     <option selected>কোন কোর্স নিয়ে জানতে চান</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
+                                    {courseTitleLists.map(
+                                    courseTitle=>(
+                                        <option value={courseTitle.title}>{courseTitle.title}</option>
+                                    )
+                                    )}
                                 </select>
                             </div>
                             <div class="col-md-12 mb-3 form-floating">

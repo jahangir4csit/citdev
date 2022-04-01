@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby"
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import Layout from "../components/layout";
@@ -16,9 +15,7 @@ const SEMINAR_MUTATION = gql`
   }
 `
 
-const RegSeminar = ({data}) => {
-
-  const courseTitles = data.allWpCourse.nodes;
+const RegSeminar = () => {
 
   const [nameVal, setNameValue] = useState('')
   const [mobileVal, setMobileValue] = useState('')
@@ -112,11 +109,19 @@ const RegSeminar = ({data}) => {
                             setCourseValue(event.target.value)
                           }}
                           >
-                        {courseTitles.map(
-                          courseTitle=>(
-                            <option>{courseTitle.title}</option>
-                          )
-                        )}
+                        <option>ওয়েব ডিজাইন</option>
+                        <option>পাইথন জ্যাঙ্গো</option>
+                        <option>পাইথন মেশিন লার্নিং</option>
+                        <option>অ্যাপ ডেভেলপমেন্ট</option>
+                        <option>ওয়ার্ডপ্রেস থিম কাস্টমাইজেশন</option>
+                        <option>মার্ন স্ট্যাক ডেভেলপমেন্ট</option>
+                        <option>ওয়েব ডেভেলপমেন্ট</option>
+                        <option>অ্যাডোবি ফটোশপ</option>
+                        <option>অ্যাডোবি ইলাস্ট্রেটর</option>
+                        <option>মোশন গ্রাফিক্স</option>
+                        <option>প্রফেশনাল ওয়েব ডেভেলপমেন্ট</option>
+                        <option>UX/UI ডিজাইন</option>
+                        <option>UX/UI ডিজাইন</option>
                           </Form.Select>
                         </FloatingLabel>
                         
@@ -158,13 +163,3 @@ const RegSeminar = ({data}) => {
 }
 
 export default RegSeminar;
-
-export const query = graphql`
-  query CourseTitle {
-    allWpCourse{
-      nodes {
-        title
-      }
-    }
-  }
-`

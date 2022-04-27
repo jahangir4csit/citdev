@@ -218,7 +218,7 @@ export default function SingleCourse({data}){
                             </Tab.Container>
                         </div>
                         }
-
+                        {post.course_options.softwareForCourse.length > 0 && post.course_options.softwareForCourse[0].title !== 'Empty' ?
                         <div class="pgc_software">
                             <h3>যে সকল সফটওয়্যার গুলো শিখবো</h3>
                             <div class="row">
@@ -245,7 +245,8 @@ export default function SingleCourse({data}){
 
                             </div>
                         </div>
-
+                        : ''}
+                        {post.course_options.courseForWhome.length > 0 && post.course_options.courseForWhome[0].title !== 'Empty' ?
                         <div class="pgc_for_whom">
                             <h3>এই কোর্স যাদের জন্য</h3>
                             <div class="row">
@@ -272,7 +273,8 @@ export default function SingleCourse({data}){
                                 
                             </div>
                         </div>
-
+                        : ''}
+                        {post.course_options.jobMarket.length > 0 && post.course_options.jobMarket[0].title !== 'Empty' ?
                         <div class="pg_marketplace">
                             <h2>আপনি যেখানে কাজ করতে পারেন</h2>
                             <div class="row">
@@ -296,11 +298,10 @@ export default function SingleCourse({data}){
                                 </div>
                               )
                               )}
-
-
                             </div>
                         </div>
-
+                        : ''}
+                        {post.course_options.jobPosition.length > 0 && post.course_options.jobPosition[0].title !== 'Empty' ?
                         <div class="pg_job">
                             <h3> যে সকল পজিশনে জব করতে পারবেন </h3>
                             <div class="row g-0">
@@ -324,7 +325,8 @@ export default function SingleCourse({data}){
 
                             </div>
                         </div>
-
+                        : ''}
+                        {post.course_options.courseFacilities.length > 0 && post.course_options.courseFacilities[0].title !== 'Empty' ?
                         <div class="pgs_facilitice">
                             <h3>শিক্ষার্থিদের আরও যে সকল সুবিধা দিয়ে থাকি</h3>
                             <div class="row">
@@ -347,6 +349,7 @@ export default function SingleCourse({data}){
 
                             </div>
                         </div>
+                        : '' }
                         
                         {post.studentProjects ? 
                         <div class="pgs_project">

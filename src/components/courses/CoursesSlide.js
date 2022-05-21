@@ -100,11 +100,14 @@ const settingsCourseItem = {
 
       return (
         <section id="courseslide">
-            <div class="container populer_courses" style={{ background: data.noBg ? 'transparent' : '' }}>
+            <div class="container 
+            populer_courses" 
+            style={{ background: data.noBg ? 'transparent' : '' }} >
                 <div class="row">
                     <CourseSlideDesc 
                     secHeading={data.secHeading} 
-                    secDesc={data.secDesc} />
+                    secDesc={data.secDesc} 
+                    />
                     <div class="col-12">
                         <div class="course_mix_btn">
                             <Slider {...settings}
@@ -114,11 +117,17 @@ const settingsCourseItem = {
                                 slidesToScroll= {1}
                                 swipeToSlide={true}
                                 focusOnSelect={true}
+                                
                             >
                             {courseData.map(
-                            item=>(
+                            (item, index)=>(
                               
-                                <button class="course_single_btn"><span>{item.name}</span></button>
+                                <button class="course_single_btn"
+                                data-sal="slide-left"
+                                data-sal-delay={index *= 300}
+                                data-sal-duration="800"
+                                data-sal-easing="ease"
+                                ><span>{item.name}</span></button>
                             )
                             )}
                             </Slider>
@@ -137,9 +146,9 @@ const settingsCourseItem = {
                                       <Slider {...settingsCourseItem}>
 
                                        {courseCatitem.courses.nodes.map(
-                                          courseItem=>(
+                                          (courseItem, index)=>(
                                          
-                                            <CourseItemSlider singleItem={courseItem} />
+                                            <CourseItemSlider singleItem={courseItem} key={index} />
 
                                               )
                                             )} 

@@ -62,7 +62,9 @@ export default function HomePage({data}){
       secDesc={homeData.homeCommentsSecDesc}
       data={reviewsData}
       />
-      <VirtualTour vData={vitrualTour} />
+      <LazyLoad once>
+        <VirtualTour vData={vitrualTour} />
+      </LazyLoad>
       <AdmissionCourses 
       secHeading={homeData.homeAdmissionSecHeading} 
       secDesc={homeData.homeAdmissionSecDesc}
@@ -77,9 +79,7 @@ export default function HomePage({data}){
       />
       <FeaturedTextOne />
       <FeaturedTextTwo aboutBtn />
-      <LazyLoad once>
-        <CounterUp />
-      </LazyLoad>
+      <CounterUp />
       <Partners 
       secHeading={homeData.homePartnersSecHeading} 
       secDesc={homeData.homePartnersSecDesc}

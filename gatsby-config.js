@@ -14,7 +14,7 @@ module.exports = {
         url: `https://bangladeshigf.org/cit/graphql`,
         //url: `http://cit.creativejuniors.com/graphql`,
         //url: `http://localhost/citbd/graphql`
-        //url: `https://www.creativeitinstitute.com/citdev21/graphql`,ik9 
+        //url: `https://www.creativeitinstitute.com/citdev21/graphql`,
       },
     },
     {
@@ -42,7 +42,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, 
+        icon: `src/images/index.png`, 
       },
     },
     {
@@ -50,7 +50,8 @@ module.exports = {
       options: {
         fonts: [
           `Hind+Siliguri:300,400,500,600,700`, `source sans pro:300,400,500,600,700`,
-          `Roboto:300,400,500,700,900`
+          `Roboto:300,400,500,700,900`,
+          // `Open+Sans:300,400,500,600`
         ],
         display: 'swap'
       }

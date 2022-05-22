@@ -72,6 +72,12 @@ module.exports = {
           exitEventName: 'sal:out', // Exit event name
       }
     },
+    {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: 'https://bangladeshigf.org/cit/graphql'
+      }
+    },
     `gatsby-plugin-smoothscroll`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

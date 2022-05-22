@@ -1,5 +1,6 @@
 import { graphql } from "gatsby"
 import * as React from "react"
+import LazyLoad from 'react-lazyload';
 import BlogSlider from "../components/blog/blogSlider"
 import CounterUp from "../components/counterUp"
 import AdmissionCourses from "../components/courses/admissionCourses"
@@ -76,7 +77,9 @@ export default function HomePage({data}){
       />
       <FeaturedTextOne />
       <FeaturedTextTwo aboutBtn />
-      <CounterUp />
+      <LazyLoad once>
+        <CounterUp />
+      </LazyLoad>
       <Partners 
       secHeading={homeData.homePartnersSecHeading} 
       secDesc={homeData.homePartnersSecDesc}

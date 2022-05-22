@@ -13,10 +13,10 @@ const CounterUp = ()=>{
 
     return(
         <section id="couter_up"
-        data-sal="slide-up"
-        data-sal-delay="300"
-        data-sal-duration="1000"
-        data-sal-easing="ease" 
+        // data-sal="slide-up"
+        // data-sal-delay="300"
+        // data-sal-duration="1000"
+        // data-sal-easing="ease" 
         >
             <div class="container">
                 <div class="row">

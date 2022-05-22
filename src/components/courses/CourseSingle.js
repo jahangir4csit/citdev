@@ -6,15 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function CourseSingle(data){
     const courseItem = data.singleItem;
     return(
-<<<<<<< HEAD
-        <div class="col-lg-4 col-md-6 col-sm-6 pb-6">
-=======
         <div class="col-lg-4 col-md-6 col-sm-6 pb-6"
         data-sal="slide-right"
         data-sal-delay={data.delay}
         data-sal-duration="800"
         data-sal-easing="ease">
->>>>>>> 452a64f2c1e739576f29330f298fd33aa3611e18
             <Link to={`/courses/${courseItem.slug}`}>
                 <div class="course_single_item admission_item">
                     <div class="course_image">
